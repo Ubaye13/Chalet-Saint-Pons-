@@ -8,100 +8,110 @@
 <link rel="apple-touch-icon" href="C3rf_Gallery.jpg">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
-body{background:#0B120E;min-height:100vh;color:#E8E4DA}
+
+body{min-height:100vh;color:#EDEAE2;background:#0B120E}
+
+#bgLayer{position:fixed;inset:0;z-index:-2;
+  background-image:url('C3rf_Gallery.jpg');
+  background-size:cover;background-position:center;background-repeat:no-repeat}
+#bgVeil{position:fixed;inset:0;z-index:-1;
+  background:linear-gradient(to bottom,rgba(11,18,14,.72) 0%,rgba(11,18,14,.62) 40%,rgba(11,18,14,.78) 100%)}
+
 .hidden{display:none!important}
 
-.hero{position:relative;overflow:hidden;min-height:190px;padding:1.3rem 1.25rem 3.8rem;
-  background-image:linear-gradient(to bottom,rgba(11,18,14,.86) 0%,rgba(11,18,14,.35) 38%,rgba(11,18,14,.55) 72%,rgba(11,18,14,.95) 100%),url('C3rf_Gallery.jpg');
-  background-size:cover;background-position:50% 32%;background-repeat:no-repeat}
-.hero-inner{position:relative;z-index:3}
-.hero-title{font-size:18px;font-weight:600;color:#FFFFFF;letter-spacing:.4px;text-shadow:0 2px 10px rgba(0,0,0,.9)}
-.hero-sub{font-size:11.5px;color:rgba(255,255,255,.72);margin-top:3px;letter-spacing:.3px;text-shadow:0 1px 6px rgba(0,0,0,.9)}
-.logout-btn{position:absolute;top:0;right:0;z-index:4;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.2);color:#FFF;border-radius:20px;padding:6px 13px;font-size:11.5px;cursor:pointer;backdrop-filter:blur(8px)}
+.hero{position:relative;padding:1.4rem 1.25rem 2.6rem}
+.hero-title{font-size:19px;font-weight:600;color:#FFF;letter-spacing:.4px;text-shadow:0 2px 12px rgba(0,0,0,.95)}
+.hero-sub{font-size:12px;color:rgba(255,255,255,.7);margin-top:4px;letter-spacing:.3px;text-shadow:0 1px 8px rgba(0,0,0,.95)}
+.logout-btn{position:absolute;top:1.4rem;right:1.25rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#FFF;border-radius:20px;padding:7px 14px;font-size:11.5px;cursor:pointer;backdrop-filter:blur(14px)}
 
-.balance-card{margin:-2.2rem 1rem 0;background:rgba(22,35,28,.94);border:1px solid rgba(201,162,39,.25);border-radius:18px;padding:1.35rem;position:relative;z-index:6;box-shadow:0 10px 30px rgba(0,0,0,.6);backdrop-filter:blur(12px)}
-.balance-label{font-size:11.5px;color:#9BA79D;margin-bottom:6px;text-transform:uppercase;letter-spacing:.7px}
-.balance-amount{font-size:38px;font-weight:600;color:#C9A227;line-height:1;letter-spacing:-.5px}
-.balance-total{font-size:12.5px;color:#7D897F;margin-top:6px}
-.progress-bar{height:7px;background:#0B120E;border-radius:4px;margin-top:1.1rem;overflow:hidden}
-.progress-fill{height:100%;background:linear-gradient(90deg,#8A7A1E,#C9A227);border-radius:4px;transition:width .7s ease;width:0%}
-.progress-labels{display:flex;justify-content:space-between;font-size:11px;color:#7D897F;margin-top:7px}
+.glass{background:rgba(14,22,17,.42);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 
-.tab-bar{display:flex;gap:4px;padding:1rem 1rem .25rem}
-.tab{flex:1;padding:11px 4px;font-size:12px;font-weight:600;color:#7D897F;border:1px solid transparent;background:#16231C;border-radius:11px;cursor:pointer;position:relative;transition:all .2s}
-.tab.active{color:#C9A227;background:#1B2921;border-color:rgba(201,162,39,.3)}
-.tab-dot{position:absolute;top:6px;right:8px;width:6px;height:6px;background:#D4653F;border-radius:50%;display:none}
+.balance-card{margin:0 1rem;border-radius:20px;padding:1.4rem;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.balance-label{font-size:11px;color:rgba(237,234,226,.62);margin-bottom:7px;text-transform:uppercase;letter-spacing:.9px}
+.balance-amount{font-size:38px;font-weight:600;color:#FFF;line-height:1;letter-spacing:-.8px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.balance-total{font-size:12.5px;color:rgba(237,234,226,.5);margin-top:7px}
+.progress-bar{height:6px;background:rgba(255,255,255,.12);border-radius:3px;margin-top:1.2rem;overflow:hidden}
+.progress-fill{height:100%;background:#A8C3A0;border-radius:3px;transition:width .7s ease;width:0%}
+.progress-labels{display:flex;justify-content:space-between;font-size:11px;color:rgba(237,234,226,.5);margin-top:8px}
 
-.section{padding:.75rem 1rem 1.5rem}
-.section-title{font-size:11px;font-weight:600;color:#7D897F;text-transform:uppercase;letter-spacing:.9px;margin-bottom:.8rem}
+.tab-bar{display:flex;gap:6px;padding:1rem 1rem .3rem}
+.tab{flex:1;padding:11px 4px;font-size:12px;font-weight:600;color:rgba(237,234,226,.55);border:1px solid rgba(255,255,255,.1);background:rgba(14,22,17,.35);border-radius:12px;cursor:pointer;position:relative;backdrop-filter:blur(14px);transition:all .2s}
+.tab.active{color:#FFF;background:rgba(168,195,160,.18);border-color:rgba(168,195,160,.45)}
+.tab-dot{position:absolute;top:6px;right:9px;width:6px;height:6px;background:#E0A088;border-radius:50%;display:none}
 
-.payment-card{background:#16231C;border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:1rem 1.1rem;margin-bottom:.6rem}
-.payment-card.approved{border-left:3px solid #C9A227}
+.section{padding:.8rem 1rem 1.5rem}
+.section-title{font-size:10.5px;font-weight:600;color:rgba(237,234,226,.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:.85rem}
+
+.payment-card{border-radius:16px;padding:1.05rem 1.15rem;margin-bottom:.65rem}
+.payment-card.approved{border-left:3px solid #A8C3A0}
 .payment-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.payment-amount{font-size:19px;font-weight:600;color:#E8E4DA}
-.payment-meta{font-size:11.5px;color:#7D897F;margin-top:4px;line-height:1.5}
-.lock-line{font-size:10.5px;color:#6B7670;margin-top:9px;padding-top:9px;border-top:1px solid rgba(255,255,255,.05)}
-.badge{font-size:10.5px;padding:4px 10px;border-radius:20px;font-weight:600;white-space:nowrap;letter-spacing:.3px}
-.badge-pending{background:rgba(201,162,39,.14);color:#C9A227}
-.badge-approved{background:rgba(122,163,110,.16);color:#8FBF7F}
-.badge-rejected{background:rgba(212,101,63,.14);color:#D4653F}
+.payment-amount{font-size:19px;font-weight:600;color:#FFF}
+.payment-meta{font-size:11.5px;color:rgba(237,234,226,.55);margin-top:5px;line-height:1.5}
+.lock-line{font-size:10.5px;color:rgba(237,234,226,.4);margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1)}
+.badge{font-size:10.5px;padding:4px 11px;border-radius:20px;font-weight:600;white-space:nowrap;letter-spacing:.3px}
+.badge-pending{background:rgba(255,255,255,.14);color:rgba(255,255,255,.85)}
+.badge-approved{background:rgba(168,195,160,.24);color:#C4DCBC}
+.badge-rejected{background:rgba(224,160,136,.2);color:#E8B8A4}
 
-.action-btns{display:flex;gap:8px;margin-top:.9rem}
-.btn{flex:1;padding:10px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;border:none}
-.btn-approve{background:#C9A227;color:#14201A}
-.btn-reject{background:rgba(212,101,63,.16);color:#D4653F}
-.delete-link{background:none;border:none;color:#5E6962;font-size:11px;cursor:pointer;padding:9px 0 0;display:inline-block}
-.delete-confirm{background:rgba(212,101,63,.1);border:1px solid rgba(212,101,63,.28);border-radius:11px;padding:10px 12px;margin-top:.8rem;font-size:12px;color:#E0A088;line-height:1.5}
-.confirm-btns{display:flex;gap:7px;margin-top:10px}
-.btn-sm{padding:7px 13px;border-radius:9px;font-size:12px;cursor:pointer;border:none;font-weight:600}
-.btn-sm-danger{background:#D4653F;color:#14201A}
-.btn-sm-cancel{background:rgba(255,255,255,.06);color:#9BA79D;border:1px solid rgba(255,255,255,.1)}
-.delete-wait{font-size:11px;color:#C9A227;background:rgba(201,162,39,.1);border-radius:9px;padding:8px 11px;margin-top:9px;line-height:1.5}
+.action-btns{display:flex;gap:9px;margin-top:1rem}
+.btn{flex:1;padding:11px;border-radius:11px;font-size:13px;font-weight:600;cursor:pointer;border:none}
+.btn-approve{background:#A8C3A0;color:#16231C}
+.btn-reject{background:rgba(255,255,255,.1);color:#E8B8A4;border:1px solid rgba(224,160,136,.35)}
+.delete-link{background:none;border:none;color:rgba(237,234,226,.38);font-size:11px;cursor:pointer;padding:10px 0 0;display:inline-block}
+.delete-confirm{background:rgba(224,160,136,.12);border:1px solid rgba(224,160,136,.3);border-radius:12px;padding:11px 13px;margin-top:.85rem;font-size:12px;color:#E8B8A4;line-height:1.5}
+.confirm-btns{display:flex;gap:8px;margin-top:11px}
+.btn-sm{padding:7px 14px;border-radius:10px;font-size:12px;cursor:pointer;border:none;font-weight:600}
+.btn-sm-danger{background:#D4917A;color:#1A1210}
+.btn-sm-cancel{background:rgba(255,255,255,.1);color:rgba(237,234,226,.75);border:1px solid rgba(255,255,255,.16)}
+.delete-wait{font-size:11px;color:rgba(237,234,226,.72);background:rgba(255,255,255,.08);border-radius:10px;padding:9px 12px;margin-top:10px;line-height:1.5}
 
-.input-card{background:#16231C;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:1.2rem}
-.field-label{font-size:11px;color:#7D897F;margin-bottom:7px;display:block;font-weight:600;text-transform:uppercase;letter-spacing:.6px}
-.amount-input{width:100%;font-size:30px;font-weight:600;border:none;border-bottom:2px solid rgba(201,162,39,.4);padding:4px 0 10px;color:#C9A227;background:transparent;outline:none;margin-bottom:1.3rem}
-.amount-input::placeholder{color:#3A463E}
-.amount-input:focus{border-bottom-color:#C9A227}
-.date-input,.note-input{width:100%;font-size:14px;border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:11px;margin-bottom:1.3rem;color:#E8E4DA;background:#0B120E;outline:none;font-family:inherit}
-.note-input{resize:none;height:66px}
-.note-input::placeholder{color:#4A554D}
-.date-input:focus,.note-input:focus{border-color:rgba(201,162,39,.5)}
-.btn-send{width:100%;padding:14px;background:#C9A227;color:#14201A;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer}
+.input-card{border-radius:18px;padding:1.3rem}
+.field-label{font-size:10.5px;color:rgba(237,234,226,.5);margin-bottom:8px;display:block;font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+.amount-input{width:100%;font-size:32px;font-weight:600;border:none;border-bottom:2px solid rgba(168,195,160,.45);padding:4px 0 11px;color:#FFF;background:transparent;outline:none;margin-bottom:1.4rem}
+.amount-input::placeholder{color:rgba(255,255,255,.2)}
+.amount-input:focus{border-bottom-color:#A8C3A0}
+.date-input,.note-input{width:100%;font-size:14px;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px;margin-bottom:1.4rem;color:#EDEAE2;background:rgba(0,0,0,.28);outline:none;font-family:inherit}
+.note-input{resize:none;height:68px}
+.note-input::placeholder{color:rgba(255,255,255,.28)}
+.date-input:focus,.note-input:focus{border-color:rgba(168,195,160,.5)}
+.btn-send{width:100%;padding:14px;background:#A8C3A0;color:#16231C;border:none;border-radius:13px;font-size:15px;font-weight:600;cursor:pointer}
 .btn-send:active{opacity:.85}
-.send-error{font-size:12px;color:#D4653F;display:none;margin-bottom:11px}
+.send-error{font-size:12px;color:#E8B8A4;display:none;margin-bottom:12px}
 
-.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 150px)}
+.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 140px)}
 .chat-messages{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:9px}
-.msg{max-width:78%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.5;word-wrap:break-word}
-.msg-mine{align-self:flex-end;background:#C9A227;color:#14201A;border-bottom-right-radius:5px}
-.msg-theirs{align-self:flex-start;background:#1B2921;color:#E8E4DA;border:1px solid rgba(255,255,255,.07);border-bottom-left-radius:5px}
-.msg-time{font-size:9.5px;opacity:.55;margin-top:5px;display:block}
-.msg-day{align-self:center;font-size:10.5px;color:#6B7670;background:#16231C;padding:5px 14px;border-radius:20px;margin:8px 0}
-.chat-input-bar{display:flex;gap:9px;padding:.85rem;background:#14201A;border-top:1px solid rgba(255,255,255,.06);align-items:flex-end}
-.chat-input{flex:1;font-size:14px;border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:11px 16px;outline:none;resize:none;max-height:100px;font-family:inherit;color:#E8E4DA;background:#0B120E}
-.chat-input::placeholder{color:#4A554D}
-.chat-input:focus{border-color:rgba(201,162,39,.45)}
-.chat-send{width:44px;height:44px;border-radius:50%;background:#C9A227;color:#14201A;border:none;font-size:17px;cursor:pointer;flex-shrink:0}
+.msg{max-width:78%;padding:11px 15px;border-radius:17px;font-size:14px;line-height:1.5;word-wrap:break-word}
+.msg-mine{align-self:flex-end;background:rgba(168,195,160,.9);color:#16231C;border-bottom-right-radius:5px}
+.msg-theirs{align-self:flex-start;background:rgba(14,22,17,.55);color:#EDEAE2;border:1px solid rgba(255,255,255,.14);border-bottom-left-radius:5px;backdrop-filter:blur(14px)}
+.msg-time{font-size:9.5px;opacity:.6;margin-top:5px;display:block}
+.msg-day{align-self:center;font-size:10.5px;color:rgba(237,234,226,.55);background:rgba(14,22,17,.5);padding:5px 15px;border-radius:20px;margin:9px 0;backdrop-filter:blur(12px)}
+.chat-input-bar{display:flex;gap:9px;padding:.9rem;background:rgba(11,18,14,.6);border-top:1px solid rgba(255,255,255,.1);align-items:flex-end;backdrop-filter:blur(18px)}
+.chat-input{flex:1;font-size:14px;border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:12px 17px;outline:none;resize:none;max-height:100px;font-family:inherit;color:#EDEAE2;background:rgba(0,0,0,.3)}
+.chat-input::placeholder{color:rgba(255,255,255,.28)}
+.chat-input:focus{border-color:rgba(168,195,160,.5)}
+.chat-send{width:44px;height:44px;border-radius:50%;background:#A8C3A0;color:#16231C;border:none;font-size:17px;cursor:pointer;flex-shrink:0}
 .chat-send:active{opacity:.85}
-.chat-empty{text-align:center;color:#5E6962;font-size:13px;margin:auto;line-height:1.9}
+.chat-empty{text-align:center;color:rgba(237,234,226,.42);font-size:13px;margin:auto;line-height:1.9}
 
-.login-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:3rem 1.5rem 2.5rem;position:relative;
-  background-image:linear-gradient(to bottom,rgba(11,18,14,.9) 0%,rgba(11,18,14,.25) 26%,rgba(11,18,14,.15) 52%,rgba(11,18,14,.75) 82%,rgba(11,18,14,.97) 100%),url('C3rf_Gallery.jpg');
-  background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:scroll}
-.login-head{text-align:center;position:relative;z-index:2}
-.login-title{font-size:27px;font-weight:600;color:#FFFFFF;margin-bottom:8px;letter-spacing:.5px;text-shadow:0 2px 14px rgba(0,0,0,.95)}
-.login-sub{font-size:12.5px;color:rgba(255,255,255,.78);line-height:1.7;letter-spacing:.4px;text-shadow:0 2px 10px rgba(0,0,0,.95)}
-.login-foot{width:100%;display:flex;flex-direction:column;align-items:center;position:relative;z-index:2}
-.login-card{width:100%;max-width:330px;background:rgba(11,18,14,.72);border:1px solid rgba(201,162,39,.28);border-radius:18px;padding:1.4rem;backdrop-filter:blur(14px)}
-.btn-google{width:100%;padding:13px;background:#F2EFE6;color:#1B2921;border:none;border-radius:11px;font-size:14.5px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:11px}
+.login-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:3rem 1.5rem 2.5rem;position:relative}
+.login-screen::before{content:'';position:fixed;inset:0;z-index:-1;
+  background:linear-gradient(to bottom,rgba(11,18,14,.9) 0%,rgba(11,18,14,.2) 26%,rgba(11,18,14,.12) 52%,rgba(11,18,14,.72) 82%,rgba(11,18,14,.96) 100%)}
+.login-head{text-align:center}
+.login-title{font-size:27px;font-weight:600;color:#FFF;margin-bottom:9px;letter-spacing:.5px;text-shadow:0 2px 16px rgba(0,0,0,.95)}
+.login-sub{font-size:12.5px;color:rgba(255,255,255,.78);line-height:1.7;letter-spacing:.4px;text-shadow:0 2px 12px rgba(0,0,0,.95)}
+.login-foot{width:100%;display:flex;flex-direction:column;align-items:center}
+.login-card{width:100%;max-width:330px;border-radius:20px;padding:1.4rem}
+.btn-google{width:100%;padding:13px;background:#F5F2EA;color:#1B2921;border:none;border-radius:12px;font-size:14.5px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:11px}
 .btn-google:active{opacity:.9}
-.login-error{font-size:12px;color:#E0A088;background:rgba(212,101,63,.2);border:1px solid rgba(212,101,63,.4);border-radius:11px;padding:11px 13px;margin-bottom:1.1rem;display:none;line-height:1.5}
-.empty-state{text-align:center;padding:2.8rem 1rem;color:#5E6962;font-size:13.5px;line-height:1.9}
-.loading{text-align:center;padding:2rem;color:#5E6962;font-size:12.5px}
+.login-error{font-size:12px;color:#E8B8A4;background:rgba(224,160,136,.18);border:1px solid rgba(224,160,136,.38);border-radius:12px;padding:11px 13px;margin-bottom:1.1rem;display:none;line-height:1.5}
+.empty-state{text-align:center;padding:2.8rem 1rem;color:rgba(237,234,226,.42);font-size:13.5px;line-height:1.9}
+.loading{text-align:center;padding:2rem;color:rgba(237,234,226,.42);font-size:12.5px}
 </style>
 </head>
 <body>
+
+<div id="bgLayer"></div>
+<div id="bgVeil"></div>
 
 <div id="loginScreen" class="login-screen">
   <div class="login-head">
@@ -109,7 +119,7 @@ body{background:#0B120E;min-height:100vh;color:#E8E4DA}
     <div class="login-sub">Vallee de l'Ubaye<br>Alpes de Haute-Provence</div>
   </div>
   <div class="login-foot">
-    <div class="login-card">
+    <div class="login-card glass">
       <div class="login-error" id="loginError">Acces refuse. Compte non autorise.</div>
       <button class="btn-google" onclick="signInWithGoogle()">
         <svg width="19" height="19" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
@@ -121,14 +131,12 @@ body{background:#0B120E;min-height:100vh;color:#E8E4DA}
 
 <div id="mainApp" class="hidden">
   <div class="hero">
-    <div class="hero-inner">
-      <div class="hero-title">Chalet Saint-Pons</div>
-      <div class="hero-sub" id="userGreeting"></div>
-      <button class="logout-btn" onclick="doSignOut()">Deconnexion</button>
-    </div>
+    <div class="hero-title">Chalet Saint-Pons</div>
+    <div class="hero-sub" id="userGreeting"></div>
+    <button class="logout-btn" onclick="doSignOut()">Deconnexion</button>
   </div>
 
-  <div class="balance-card" id="balanceCard">
+  <div class="balance-card glass" id="balanceCard">
     <div class="balance-label">Reste a rembourser a Elodie</div>
     <div class="balance-amount" id="balanceDisplay">30 000 &euro;</div>
     <div class="balance-total">sur 30 000 &euro; au total</div>
@@ -155,7 +163,7 @@ body{background:#0B120E;min-height:100vh;color:#E8E4DA}
   <div id="tabContentSend" class="hidden">
     <div class="section">
       <div class="section-title">Proposer un versement</div>
-      <div class="input-card">
+      <div class="input-card glass">
         <label class="field-label">Montant</label>
         <input class="amount-input" id="amountInput" type="number" inputmode="decimal" placeholder="1000" min="1">
         <label class="field-label">Date du versement</label>
@@ -375,7 +383,7 @@ function render() {
       del = '<div class="delete-confirm">' + nameFor(p.deleteRequest) + ' demande la suppression de ce versement.<div class="confirm-btns"><button class="btn-sm btn-sm-danger" onclick="confirmDelete(\'' + p.id + '\')">Confirmer</button><button class="btn-sm btn-sm-cancel" onclick="refuseDelete(\'' + p.id + '\')">Refuser</button></div></div>';
     }
 
-    return '<div class="payment-card' + (approved ? ' approved' : '') + '">' +
+    return '<div class="payment-card glass' + (approved ? ' approved' : '') + '">' +
       '<div class="payment-row"><div>' +
       '<div class="payment-amount">' + p.amount.toLocaleString('fr-FR') + ' \u20AC</div>' +
       '<div class="payment-meta">' + fmtDate(p.date) + ' &middot; ' + nameFor(p.proposedBy) + (p.note ? '<br>' + esc(p.note) : '') + '</div>' +
