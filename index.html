@@ -4,137 +4,209 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chalet Saint-Pons</title>
-<meta name="theme-color" content="#2C4A3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232C4A3E'/%3E%3Cpolygon points='10,80 30,35 45,60 60,20 80,55 90,40 90,80' fill='%23F5F3EE'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#14201A">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314201A'/%3E%3Cpath d='M38 78 L38 55 L33 46 L38 46 L34 38 L39 38 L36 31 L44 40 L56 40 L64 31 L61 38 L66 38 L62 46 L67 46 L62 55 L62 78 L56 78 L56 62 L44 62 L44 78 Z' fill='%23C9A227'/%3E%3C/svg%3E">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
-body{background:#F5F3EE;min-height:100vh}
+body{background:#0E1712;min-height:100vh;color:#E8E4DA}
+
 .hidden{display:none!important}
 
-.hero{background:#2C4A3E;padding:1.5rem 1.25rem 3rem;position:relative;overflow:hidden}
-.hero-scene{position:absolute;bottom:0;left:0;right:0;height:90px}
-.hero-title{font-size:16px;font-weight:600;color:#F0EDE8;letter-spacing:.3px;position:relative;z-index:2}
-.hero-sub{font-size:12px;color:rgba(240,237,232,.65);margin-top:3px;position:relative;z-index:2}
-.logout-btn{position:absolute;top:1.25rem;right:1.25rem;z-index:3;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#F0EDE8;border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer}
+.hero{position:relative;overflow:hidden;background:#14201A;padding:1.4rem 1.25rem 4.5rem}
+.hero-scene{position:absolute;inset:0;width:100%;height:100%}
+.hero-inner{position:relative;z-index:3}
+.hero-title{font-size:17px;font-weight:600;color:#F2EFE6;letter-spacing:.4px}
+.hero-sub{font-size:11.5px;color:rgba(242,239,230,.55);margin-top:3px;letter-spacing:.2px}
+.logout-btn{position:absolute;top:0;right:0;z-index:4;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#E8E4DA;border-radius:20px;padding:6px 13px;font-size:11.5px;cursor:pointer;backdrop-filter:blur(6px)}
 
-.balance-card{margin:-1.5rem 1rem 0;background:#fff;border:1px solid #e3e0d8;border-radius:14px;padding:1.25rem;position:relative;z-index:5;box-shadow:0 2px 10px rgba(0,0,0,.07)}
-.balance-label{font-size:12px;color:#7c7a74;margin-bottom:4px}
-.balance-amount{font-size:34px;font-weight:600;color:#2C4A3E;line-height:1.1}
-.balance-total{font-size:13px;color:#a8a69f;margin-top:3px}
-.progress-bar{height:9px;background:#efece5;border-radius:5px;margin-top:1rem;overflow:hidden}
-.progress-fill{height:100%;background:#3D6B5C;border-radius:5px;transition:width .6s ease;width:0%}
-.progress-labels{display:flex;justify-content:space-between;font-size:11px;color:#a8a69f;margin-top:5px}
+.balance-card{margin:-2.4rem 1rem 0;background:#1B2921;border:1px solid rgba(201,162,39,.22);border-radius:18px;padding:1.35rem;position:relative;z-index:6;box-shadow:0 8px 28px rgba(0,0,0,.45)}
+.balance-label{font-size:11.5px;color:#9BA79D;margin-bottom:6px;text-transform:uppercase;letter-spacing:.7px}
+.balance-amount{font-size:38px;font-weight:600;color:#C9A227;line-height:1;letter-spacing:-.5px}
+.balance-total{font-size:12.5px;color:#7D897F;margin-top:6px}
+.progress-bar{height:7px;background:#0E1712;border-radius:4px;margin-top:1.1rem;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#8A7A1E,#C9A227);border-radius:4px;transition:width .7s ease;width:0%}
+.progress-labels{display:flex;justify-content:space-between;font-size:11px;color:#7D897F;margin-top:7px}
 
-.tab-bar{display:flex;border-bottom:1px solid #e3e0d8;background:#fff;padding:0 .5rem;margin-top:1rem}
-.tab{flex:1;padding:13px 4px;font-size:12px;font-weight:600;color:#a8a69f;border:none;background:transparent;cursor:pointer;border-bottom:2px solid transparent;position:relative}
-.tab.active{color:#2C4A3E;border-bottom-color:#2C4A3E}
-.tab-dot{position:absolute;top:8px;right:8px;width:7px;height:7px;background:#c0392b;border-radius:50%;display:none}
+.tab-bar{display:flex;gap:4px;padding:1rem 1rem .25rem}
+.tab{flex:1;padding:11px 4px;font-size:12px;font-weight:600;color:#7D897F;border:1px solid transparent;background:#16231C;border-radius:11px;cursor:pointer;position:relative;transition:all .2s}
+.tab.active{color:#C9A227;background:#1B2921;border-color:rgba(201,162,39,.3)}
+.tab-dot{position:absolute;top:6px;right:8px;width:6px;height:6px;background:#D4653F;border-radius:50%;display:none}
 
-.section{padding:1rem}
-.section-title{font-size:12px;font-weight:600;color:#7c7a74;text-transform:uppercase;letter-spacing:.6px;margin-bottom:.75rem}
+.section{padding:.75rem 1rem 1.5rem}
+.section-title{font-size:11px;font-weight:600;color:#7D897F;text-transform:uppercase;letter-spacing:.9px;margin-bottom:.8rem}
 
-.payment-card{background:#fff;border:1px solid #e3e0d8;border-radius:12px;padding:1rem;margin-bottom:.6rem}
-.payment-card.approved{border-left:3px solid #3D6B5C}
+.payment-card{background:#16231C;border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:1rem 1.1rem;margin-bottom:.6rem}
+.payment-card.approved{border-left:3px solid #C9A227}
 .payment-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.payment-amount{font-size:18px;font-weight:600;color:#2C4A3E}
-.payment-meta{font-size:12px;color:#a8a69f;margin-top:3px;line-height:1.4}
-.lock-line{font-size:11px;color:#a8a69f;margin-top:8px}
-.badge{font-size:11px;padding:4px 9px;border-radius:7px;font-weight:600;white-space:nowrap}
-.badge-pending{background:#FFF3CD;color:#856404}
-.badge-approved{background:#D1E7DD;color:#0A5931}
-.badge-rejected{background:#F8D7DA;color:#721C24}
+.payment-amount{font-size:19px;font-weight:600;color:#E8E4DA}
+.payment-meta{font-size:11.5px;color:#7D897F;margin-top:4px;line-height:1.5}
+.lock-line{font-size:10.5px;color:#6B7670;margin-top:9px;padding-top:9px;border-top:1px solid rgba(255,255,255,.05)}
+.badge{font-size:10.5px;padding:4px 10px;border-radius:20px;font-weight:600;white-space:nowrap;letter-spacing:.3px}
+.badge-pending{background:rgba(201,162,39,.14);color:#C9A227}
+.badge-approved{background:rgba(122,163,110,.16);color:#8FBF7F}
+.badge-rejected{background:rgba(212,101,63,.14);color:#D4653F}
 
-.action-btns{display:flex;gap:8px;margin-top:.8rem}
-.btn{flex:1;padding:9px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none}
-.btn-approve{background:#3D6B5C;color:#fff}
-.btn-reject{background:#F8D7DA;color:#721C24}
-.delete-link{background:none;border:none;color:#b5b3ac;font-size:11px;cursor:pointer;padding:6px 0 0;display:inline-block}
-.delete-confirm{background:#F8D7DA;border:1px solid #F5C2C7;border-radius:8px;padding:9px 12px;margin-top:.7rem;font-size:12px;color:#721C24;line-height:1.4}
-.confirm-btns{display:flex;gap:6px;margin-top:9px}
-.btn-sm{padding:6px 11px;border-radius:7px;font-size:12px;cursor:pointer;border:none;font-weight:600}
-.btn-sm-danger{background:#721C24;color:#fff}
-.btn-sm-cancel{background:#f2efe9;color:#7c7a74;border:1px solid #e3e0d8}
-.delete-wait{font-size:11px;color:#856404;background:#FFF3CD;border-radius:6px;padding:6px 9px;margin-top:8px;line-height:1.4}
+.action-btns{display:flex;gap:8px;margin-top:.9rem}
+.btn{flex:1;padding:10px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;border:none}
+.btn-approve{background:#C9A227;color:#14201A}
+.btn-reject{background:rgba(212,101,63,.16);color:#D4653F}
+.delete-link{background:none;border:none;color:#5E6962;font-size:11px;cursor:pointer;padding:9px 0 0;display:inline-block}
+.delete-confirm{background:rgba(212,101,63,.1);border:1px solid rgba(212,101,63,.28);border-radius:11px;padding:10px 12px;margin-top:.8rem;font-size:12px;color:#E0A088;line-height:1.5}
+.confirm-btns{display:flex;gap:7px;margin-top:10px}
+.btn-sm{padding:7px 13px;border-radius:9px;font-size:12px;cursor:pointer;border:none;font-weight:600}
+.btn-sm-danger{background:#D4653F;color:#14201A}
+.btn-sm-cancel{background:rgba(255,255,255,.06);color:#9BA79D;border:1px solid rgba(255,255,255,.1)}
+.delete-wait{font-size:11px;color:#C9A227;background:rgba(201,162,39,.1);border-radius:9px;padding:8px 11px;margin-top:9px;line-height:1.5}
 
-.input-card{background:#fff;border:1px solid #e3e0d8;border-radius:12px;padding:1.1rem}
-.field-label{font-size:12px;color:#7c7a74;margin-bottom:5px;display:block;font-weight:500}
-.amount-input{width:100%;font-size:26px;font-weight:600;border:none;border-bottom:2px solid #3D6B5C;padding:5px 0;color:#2C4A3E;background:transparent;outline:none;margin-bottom:1rem}
-.date-input,.note-input{width:100%;font-size:14px;border:1px solid #e3e0d8;border-radius:8px;padding:10px;margin-bottom:1rem;color:#2C4A3E;background:#fff;outline:none}
-.note-input{resize:none;height:64px}
-.date-input:focus,.note-input:focus{border-color:#3D6B5C}
-.btn-send{width:100%;padding:13px;background:#2C4A3E;color:#fff;border:none;border-radius:9px;font-size:15px;font-weight:600;cursor:pointer}
+.input-card{background:#16231C;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:1.2rem}
+.field-label{font-size:11px;color:#7D897F;margin-bottom:7px;display:block;font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+.amount-input{width:100%;font-size:30px;font-weight:600;border:none;border-bottom:2px solid rgba(201,162,39,.4);padding:4px 0 10px;color:#C9A227;background:transparent;outline:none;margin-bottom:1.3rem}
+.amount-input::placeholder{color:#3A463E}
+.amount-input:focus{border-bottom-color:#C9A227}
+.date-input,.note-input{width:100%;font-size:14px;border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:11px;margin-bottom:1.3rem;color:#E8E4DA;background:#0E1712;outline:none;font-family:inherit}
+.note-input{resize:none;height:66px}
+.note-input::placeholder{color:#4A554D}
+.date-input:focus,.note-input:focus{border-color:rgba(201,162,39,.5)}
+.btn-send{width:100%;padding:14px;background:#C9A227;color:#14201A;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer}
 .btn-send:active{opacity:.85}
-.send-error{font-size:12px;color:#721C24;display:none;margin-bottom:10px}
+.send-error{font-size:12px;color:#D4653F;display:none;margin-bottom:11px}
 
-.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 60px)}
-.chat-messages{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:10px}
-.msg{max-width:78%;padding:10px 13px;border-radius:14px;font-size:14px;line-height:1.45;word-wrap:break-word}
-.msg-mine{align-self:flex-end;background:#2C4A3E;color:#F0EDE8;border-bottom-right-radius:4px}
-.msg-theirs{align-self:flex-start;background:#fff;color:#2C4A3E;border:1px solid #e3e0d8;border-bottom-left-radius:4px}
-.msg-time{font-size:10px;opacity:.6;margin-top:4px;display:block}
-.msg-day{align-self:center;font-size:11px;color:#a8a69f;background:#efece5;padding:4px 12px;border-radius:10px;margin:6px 0}
-.chat-input-bar{display:flex;gap:8px;padding:.75rem;background:#fff;border-top:1px solid #e3e0d8;align-items:flex-end}
-.chat-input{flex:1;font-size:14px;border:1px solid #e3e0d8;border-radius:20px;padding:10px 14px;outline:none;resize:none;max-height:100px;font-family:inherit;color:#2C4A3E}
-.chat-input:focus{border-color:#3D6B5C}
-.chat-send{width:42px;height:42px;border-radius:50%;background:#2C4A3E;color:#fff;border:none;font-size:18px;cursor:pointer;flex-shrink:0}
+.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 150px)}
+.chat-messages{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:9px}
+.msg{max-width:78%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.5;word-wrap:break-word}
+.msg-mine{align-self:flex-end;background:#C9A227;color:#14201A;border-bottom-right-radius:5px}
+.msg-theirs{align-self:flex-start;background:#1B2921;color:#E8E4DA;border:1px solid rgba(255,255,255,.07);border-bottom-left-radius:5px}
+.msg-time{font-size:9.5px;opacity:.55;margin-top:5px;display:block}
+.msg-day{align-self:center;font-size:10.5px;color:#6B7670;background:#16231C;padding:5px 14px;border-radius:20px;margin:8px 0}
+.chat-input-bar{display:flex;gap:9px;padding:.85rem;background:#14201A;border-top:1px solid rgba(255,255,255,.06);align-items:flex-end}
+.chat-input{flex:1;font-size:14px;border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:11px 16px;outline:none;resize:none;max-height:100px;font-family:inherit;color:#E8E4DA;background:#0E1712}
+.chat-input::placeholder{color:#4A554D}
+.chat-input:focus{border-color:rgba(201,162,39,.45)}
+.chat-send{width:44px;height:44px;border-radius:50%;background:#C9A227;color:#14201A;border:none;font-size:17px;cursor:pointer;flex-shrink:0}
 .chat-send:active{opacity:.85}
-.chat-empty{text-align:center;color:#b5b3ac;font-size:13px;margin:auto;line-height:1.8}
+.chat-empty{text-align:center;color:#5E6962;font-size:13px;margin:auto;line-height:1.9}
 
-.login-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;background:#F5F3EE}
-.login-scene{width:100%;max-width:300px;margin-bottom:1rem}
-.login-title{font-size:22px;font-weight:600;color:#2C4A3E;margin-bottom:5px}
-.login-sub{font-size:13px;color:#a8a69f;margin-bottom:2rem;text-align:center;line-height:1.5}
-.login-card{width:100%;max-width:320px;background:#fff;border:1px solid #e3e0d8;border-radius:14px;padding:1.5rem}
-.btn-google{width:100%;padding:13px;background:#fff;color:#333;border:1px solid #dadce0;border-radius:9px;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px}
-.btn-google:active{background:#f6f6f6}
-.login-error{font-size:12px;color:#721C24;background:#F8D7DA;border-radius:8px;padding:10px 12px;margin-bottom:1rem;display:none;line-height:1.4}
-.empty-state{text-align:center;padding:2.5rem 1rem;color:#b5b3ac;font-size:14px;line-height:1.7}
-.loading{text-align:center;padding:2rem;color:#a8a69f;font-size:13px}
+.login-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;background:#0E1712;position:relative;overflow:hidden}
+.login-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.login-content{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center}
+.login-title{font-size:25px;font-weight:600;color:#F2EFE6;margin-bottom:7px;letter-spacing:.3px}
+.login-sub{font-size:12.5px;color:#7D897F;margin-bottom:2.2rem;text-align:center;line-height:1.7;letter-spacing:.3px}
+.login-card{width:100%;max-width:330px;background:rgba(27,41,33,.82);border:1px solid rgba(201,162,39,.2);border-radius:18px;padding:1.5rem;backdrop-filter:blur(10px)}
+.btn-google{width:100%;padding:13px;background:#F2EFE6;color:#1B2921;border:none;border-radius:11px;font-size:14.5px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:11px}
+.btn-google:active{opacity:.9}
+.login-error{font-size:12px;color:#E0A088;background:rgba(212,101,63,.14);border:1px solid rgba(212,101,63,.3);border-radius:11px;padding:11px 13px;margin-bottom:1.1rem;display:none;line-height:1.5}
+.empty-state{text-align:center;padding:2.8rem 1rem;color:#5E6962;font-size:13.5px;line-height:1.9}
+.loading{text-align:center;padding:2rem;color:#5E6962;font-size:12.5px}
 </style>
 </head>
 <body>
 
 <div id="loginScreen" class="login-screen">
-  <svg class="login-scene" viewBox="0 0 300 130">
-    <polygon points="0,130 45,55 80,90 130,30 180,80 225,45 300,100 300,130" fill="#2C4A3E"/>
-    <polygon points="130,30 148,55 112,55" fill="#F5F3EE"/>
-    <polygon points="225,45 238,65 212,65" fill="#F5F3EE"/>
-    <g fill="#1d3329">
-      <path d="M196 130 l0-13 3-5 0-7 -3-4 4 1 3 5 9 0 3-5 4-1 -3 4 0 7 3 5 0 13 -3 0 0-10 -11 0 0 10z"/>
-      <path d="M203 101 l-4-9 3 2 2 5z"/>
-      <path d="M215 101 l4-9 -3 2 -2 5z"/>
+  <svg class="login-bg" viewBox="0 0 400 800" preserveAspectRatio="xMidYMax slice">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1A2620"/>
+        <stop offset="55%" stop-color="#14201A"/>
+        <stop offset="100%" stop-color="#0E1712"/>
+      </linearGradient>
+      <radialGradient id="glow" cx="50%" cy="62%" r="42%">
+        <stop offset="0%" stop-color="#C9A227" stop-opacity=".16"/>
+        <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="400" height="800" fill="url(#sky)"/>
+    <circle cx="308" cy="118" r="26" fill="#E8E4DA" opacity=".10"/>
+    <g fill="#E8E4DA" opacity=".22">
+      <circle cx="58" cy="82" r="1.1"/><circle cx="142" cy="52" r=".8"/><circle cx="238" cy="96" r="1"/>
+      <circle cx="356" cy="62" r=".9"/><circle cx="96" cy="146" r=".7"/><circle cx="190" cy="118" r=".9"/>
+      <circle cx="272" cy="42" r=".8"/><circle cx="26" cy="172" r=".8"/><circle cx="374" cy="150" r=".7"/>
     </g>
-    <g fill="#1d3329" opacity=".6">
-      <path d="M243 130 l0-9 2-3 0-5 -2-3 3 1 2 3 6 0 2-3 3-1 -2 3 0 5 2 3 0 9 -2 0 0-7 -8 0 0 7z"/>
+    <rect width="400" height="800" fill="url(#glow)"/>
+    <g fill="#1A2921" opacity=".55">
+      <path d="M22 560 L22 430 L8 452 L18 408 L4 424 L22 366 L40 424 L26 408 L36 452 Z"/>
+      <path d="M78 566 L78 418 L62 442 L74 394 L58 412 L78 348 L98 412 L82 394 L94 442 Z"/>
+      <path d="M140 558 L140 438 L126 460 L136 416 L122 432 L140 376 L158 432 L144 416 L154 460 Z"/>
+      <path d="M206 564 L206 424 L190 448 L202 400 L186 418 L206 354 L226 418 L210 400 L222 448 Z"/>
+      <path d="M272 556 L272 440 L258 462 L268 418 L254 434 L272 380 L290 434 L276 418 L286 462 Z"/>
+      <path d="M334 566 L334 420 L318 444 L330 396 L314 414 L334 350 L354 414 L338 396 L350 444 Z"/>
+      <path d="M386 558 L386 436 L372 458 L382 414 L368 430 L386 374 L400 424 L400 558 Z"/>
     </g>
+    <g fill="#16231C">
+      <path d="M0 640 L0 470 L-6 490 L4 446 L-10 462 L6 398 L28 462 L12 446 L24 490 L10 470 L10 640 Z"/>
+      <path d="M52 648 L52 452 L32 482 L46 424 L26 446 L52 366 L78 446 L58 424 L72 482 L52 452 Z"/>
+      <path d="M128 654 L128 470 L110 498 L122 442 L104 464 L128 388 L152 464 L134 442 L146 498 L128 470 Z"/>
+      <path d="M212 650 L212 440 L192 472 L206 410 L186 434 L212 348 L238 434 L218 410 L232 472 L212 440 Z"/>
+      <path d="M296 656 L296 466 L278 494 L290 438 L272 460 L296 384 L320 460 L302 438 L314 494 L296 466 Z"/>
+      <path d="M368 648 L368 448 L348 478 L362 420 L342 442 L368 362 L394 442 L374 420 L388 478 L368 448 Z"/>
+    </g>
+    <ellipse cx="200" cy="726" rx="150" ry="16" fill="#0A110D" opacity=".55"/>
+    <g fill="#E8E4DA">
+      <path d="M186 726 L186 668 L180 658 L180 640 L176 632 L182 636 L186 646 L190 640 L210 640 L214 646 L218 636 L224 632 L220 640 L220 658 L214 668 L214 726 L206 726 L206 692 L194 692 L194 726 Z"/>
+      <path d="M182 620 L172 594 L176 596 L180 606 L178 590 L183 604 L184 592 L188 610 L190 624 Z"/>
+      <path d="M218 620 L228 594 L224 596 L220 606 L222 590 L217 604 L216 592 L212 610 L210 624 Z"/>
+    </g>
+    <g fill="#C9A227" opacity=".85">
+      <path d="M186 726 L186 668 L180 658 L180 640 L176 632 L182 636 L186 646 L190 640 L210 640 L214 646 L218 636 L224 632 L220 640 L220 658 L214 668 L214 726 L206 726 L206 692 L194 692 L194 726 Z" opacity=".25"/>
+    </g>
+    <rect y="720" width="400" height="80" fill="#0E1712"/>
   </svg>
-  <div class="login-title">Chalet Saint-Pons</div>
-  <div class="login-sub">Vallee de l'Ubaye<br>Alpes de Haute-Provence</div>
-  <div class="login-card">
-    <div class="login-error" id="loginError">Acces refuse. Seuls Nico et Elodie peuvent se connecter.</div>
-    <button class="btn-google" onclick="signInWithGoogle()">
-      <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-      Se connecter avec Google
-    </button>
+
+  <div class="login-content">
+    <div class="login-title">Chalet Saint-Pons</div>
+    <div class="login-sub">Vallee de l'Ubaye<br>Alpes de Haute-Provence</div>
+    <div class="login-card">
+      <div class="login-error" id="loginError">Acces refuse. Compte non autorise.</div>
+      <button class="btn-google" onclick="signInWithGoogle()">
+        <svg width="19" height="19" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Se connecter avec Google
+      </button>
+    </div>
   </div>
 </div>
 
 <div id="mainApp" class="hidden">
   <div class="hero">
-    <svg class="hero-scene" viewBox="0 0 400 90" preserveAspectRatio="none">
-      <polygon points="0,90 55,30 100,58 160,12 225,50 285,22 340,55 400,35 400,90" fill="#F5F3EE" opacity=".22"/>
-      <g fill="#F5F3EE" opacity=".5">
-        <path d="M296 90 l0-14 3-5 0-8 -4-5 5 2 3 6 10 0 3-6 5-2 -4 5 0 8 3 5 0 14 -3 0 0-11 -12 0 0 11z"/>
-        <path d="M303 58 l-5-10 4 2 2 6z"/>
-        <path d="M317 58 l5-10 -4 2 -2 6z"/>
+    <svg class="hero-scene" viewBox="0 0 400 170" preserveAspectRatio="xMidYMax slice">
+      <defs>
+        <radialGradient id="hglow" cx="72%" cy="78%" r="44%">
+          <stop offset="0%" stop-color="#C9A227" stop-opacity=".14"/>
+          <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="400" height="170" fill="#14201A"/>
+      <rect width="400" height="170" fill="url(#hglow)"/>
+      <g fill="#E8E4DA" opacity=".13">
+        <circle cx="46" cy="26" r=".9"/><circle cx="128" cy="16" r=".7"/><circle cx="214" cy="32" r=".8"/>
+        <circle cx="338" cy="20" r=".8"/><circle cx="286" cy="44" r=".6"/>
       </g>
-      <g fill="#F5F3EE" opacity=".3">
-        <path d="M348 90 l0-10 2-4 0-5 -3-4 4 1 2 4 7 0 2-4 4-1 -3 4 0 5 2 4 0 10 -2 0 0-8 -9 0 0 8z"/>
+      <g fill="#1A2921" opacity=".6">
+        <path d="M14 170 L14 106 L4 120 L11 92 L2 102 L14 66 L26 102 L17 92 L24 120 Z"/>
+        <path d="M58 170 L58 100 L47 116 L55 86 L45 98 L58 58 L71 98 L61 86 L69 116 Z"/>
+        <path d="M104 170 L104 108 L94 122 L101 94 L92 104 L104 68 L116 104 L107 94 L114 122 Z"/>
+        <path d="M152 170 L152 102 L141 118 L149 88 L139 100 L152 60 L165 100 L155 88 L163 118 Z"/>
       </g>
+      <g fill="#17241D">
+        <path d="M34 170 L34 112 L21 130 L31 96 L19 110 L34 62 L49 110 L37 96 L47 130 Z"/>
+        <path d="M84 170 L84 104 L70 124 L81 86 L68 102 L84 50 L100 102 L87 86 L98 124 Z"/>
+        <path d="M136 170 L136 116 L123 134 L133 100 L121 114 L136 66 L151 114 L139 100 L149 134 Z"/>
+        <path d="M188 170 L188 106 L174 126 L185 88 L172 104 L188 54 L204 104 L191 88 L202 126 Z"/>
+      </g>
+      <g fill="#E8E4DA" opacity=".92">
+        <path d="M296 170 L296 128 L292 122 L292 110 L289 105 L293 108 L296 114 L299 110 L313 110 L316 114 L319 108 L323 105 L320 110 L320 122 L316 128 L316 170 L310 170 L310 146 L302 146 L302 170 Z"/>
+        <path d="M293 96 L286 78 L289 79 L292 86 L290 75 L294 85 L295 76 L298 89 L299 99 Z"/>
+        <path d="M319 96 L326 78 L323 79 L320 86 L322 75 L318 85 L317 76 L314 89 L313 99 Z"/>
+      </g>
+      <g fill="#17241D">
+        <path d="M352 170 L352 110 L339 128 L349 94 L337 108 L352 60 L367 108 L355 94 L365 128 Z"/>
+        <path d="M394 170 L394 118 L382 134 L391 102 L380 116 L394 72 L400 92 L400 170 Z"/>
+      </g>
+      <ellipse cx="308" cy="168" rx="34" ry="5" fill="#0C130F" opacity=".6"/>
     </svg>
-    <div class="hero-title">Chalet Saint-Pons</div>
-    <div class="hero-sub" id="userGreeting"></div>
-    <button class="logout-btn" onclick="doSignOut()">Deconnexion</button>
+    <div class="hero-inner">
+      <div class="hero-title">Chalet Saint-Pons</div>
+      <div class="hero-sub" id="userGreeting"></div>
+      <button class="logout-btn" onclick="doSignOut()">Deconnexion</button>
+    </div>
   </div>
 
   <div class="balance-card" id="balanceCard">
@@ -165,7 +237,7 @@ body{background:#F5F3EE;min-height:100vh}
     <div class="section">
       <div class="section-title">Proposer un versement</div>
       <div class="input-card">
-        <label class="field-label">Montant (&euro;)</label>
+        <label class="field-label">Montant</label>
         <input class="amount-input" id="amountInput" type="number" inputmode="decimal" placeholder="1000" min="1">
         <label class="field-label">Date du versement</label>
         <input class="date-input" id="dateInput" type="date">
@@ -202,16 +274,21 @@ const firebaseConfig = {
   appId: "1:809641153285:web:69fb8eb0e56861646c1d6c"
 };
 
-const EMAIL_NICO = "mac13012@gmail.com";
-const EMAIL_ELODIE = "maillau.elodie@gmail.com";
-const ALLOWED = [EMAIL_NICO, EMAIL_ELODIE];
+const H_NICO = "6e405c892f5523fb75a280d01e5dcaee99d140f0c9495a5331e4e833385c5120";
+const H_ELODIE = "8c75a0a565c570d9dcccc1d78453f5d1fda9232c9e0d52d238df01659649f65a";
 const TOTAL_DEBT = 30000;
+
+async function sha(t) {
+  const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
+  return Array.from(new Uint8Array(b)).map(function (x) { return x.toString(16).padStart(2, "0"); }).join("");
+}
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
 let currentUser = null;
+let myHash = "";
 let confirmingDelete = null;
 let payments = [];
 let messages = [];
@@ -220,10 +297,17 @@ let unsubM = null;
 let currentTab = 'history';
 let lastSeenCount = 0;
 
+function nameFor(h) {
+  if (h === H_NICO) return 'Nico';
+  if (h === H_ELODIE) return 'Elodie';
+  return 'Inconnu';
+}
+
 window.signInWithGoogle = async function () {
   try {
     const res = await signInWithPopup(auth, new GoogleAuthProvider());
-    if (!ALLOWED.includes(res.user.email)) {
+    const h = await sha(res.user.email);
+    if (h !== H_NICO && h !== H_ELODIE) {
       document.getElementById('loginError').style.display = 'block';
       await signOut(auth);
     }
@@ -268,7 +352,7 @@ window.proposePayment = async function () {
   await addDoc(collection(db, 'payments'), {
     amount: amount, date: date, note: note,
     status: 'pending',
-    proposedBy: currentUser.email,
+    proposedBy: myHash,
     deleteRequest: null,
     createdAt: serverTimestamp()
   });
@@ -282,7 +366,7 @@ window.approvePayment = async function (id) { await updateDoc(doc(db, 'payments'
 window.rejectPayment = async function (id) { await updateDoc(doc(db, 'payments', id), { status: 'rejected' }); };
 window.requestDelete = function (id) { confirmingDelete = id; render(); };
 window.cancelDelete = function () { confirmingDelete = null; render(); };
-window.askDelete = async function (id) { await updateDoc(doc(db, 'payments', id), { deleteRequest: currentUser.email }); confirmingDelete = null; };
+window.askDelete = async function (id) { await updateDoc(doc(db, 'payments', id), { deleteRequest: myHash }); confirmingDelete = null; };
 window.confirmDelete = async function (id) { await deleteDoc(doc(db, 'payments', id)); confirmingDelete = null; };
 window.refuseDelete = async function (id) { await updateDoc(doc(db, 'payments', id), { deleteRequest: null }); };
 
@@ -294,7 +378,7 @@ window.sendMessage = async function () {
   input.style.height = 'auto';
   await addDoc(collection(db, 'messages'), {
     text: text,
-    author: currentUser.email,
+    author: myHash,
     createdAt: serverTimestamp()
   });
 };
@@ -346,7 +430,7 @@ function render() {
     list.innerHTML = '<div class="empty-state">Aucun versement pour le moment.</div>';
     return;
   }
-  const isElodie = currentUser.email === EMAIL_ELODIE;
+  const isElodie = myHash === H_ELODIE;
 
   list.innerHTML = payments.map(function (p) {
     const approved = p.status === 'approved';
@@ -366,19 +450,16 @@ function render() {
       del = '<div class="delete-confirm">Demander la suppression de ce versement ?<div class="confirm-btns"><button class="btn-sm btn-sm-danger" onclick="askDelete(\'' + p.id + '\')">Oui, demander</button><button class="btn-sm btn-sm-cancel" onclick="cancelDelete()">Annuler</button></div></div>';
     } else if (!p.deleteRequest) {
       del = '<button class="delete-link" onclick="requestDelete(\'' + p.id + '\')">Demander la suppression</button>';
-    } else if (p.deleteRequest === currentUser.email) {
+    } else if (p.deleteRequest === myHash) {
       del = '<div class="delete-wait">Suppression demandee - en attente de l accord de l autre</div>';
     } else {
-      const who = p.deleteRequest === EMAIL_NICO ? 'Nico' : 'Elodie';
-      del = '<div class="delete-confirm">' + who + ' demande la suppression de ce versement.<div class="confirm-btns"><button class="btn-sm btn-sm-danger" onclick="confirmDelete(\'' + p.id + '\')">Confirmer</button><button class="btn-sm btn-sm-cancel" onclick="refuseDelete(\'' + p.id + '\')">Refuser</button></div></div>';
+      del = '<div class="delete-confirm">' + nameFor(p.deleteRequest) + ' demande la suppression de ce versement.<div class="confirm-btns"><button class="btn-sm btn-sm-danger" onclick="confirmDelete(\'' + p.id + '\')">Confirmer</button><button class="btn-sm btn-sm-cancel" onclick="refuseDelete(\'' + p.id + '\')">Refuser</button></div></div>';
     }
-
-    const author = p.proposedBy === EMAIL_NICO ? 'Nico' : 'Elodie';
 
     return '<div class="payment-card' + (approved ? ' approved' : '') + '">' +
       '<div class="payment-row"><div>' +
       '<div class="payment-amount">' + p.amount.toLocaleString('fr-FR') + ' \u20AC</div>' +
-      '<div class="payment-meta">' + fmtDate(p.date) + ' - propose par ' + author + (p.note ? '<br>' + esc(p.note) : '') + '</div>' +
+      '<div class="payment-meta">' + fmtDate(p.date) + ' &middot; ' + nameFor(p.proposedBy) + (p.note ? '<br>' + esc(p.note) : '') + '</div>' +
       '</div>' + badge + '</div>' + lock + actions + del + '</div>';
   }).join('');
 }
@@ -397,7 +478,7 @@ function renderChat() {
       html += '<div class="msg-day">' + day + '</div>';
       lastDay = day;
     }
-    const mine = m.author === currentUser.email;
+    const mine = m.author === myHash;
     html += '<div class="msg ' + (mine ? 'msg-mine' : 'msg-theirs') + '">' +
       esc(m.text).replace(/\n/g, '<br>') +
       '<span class="msg-time">' + fmtTime(m.createdAt) + '</span></div>';
@@ -405,22 +486,26 @@ function renderChat() {
   box.innerHTML = html;
 }
 
-const chatInput = document.getElementById('chatInput');
-chatInput.addEventListener('input', function () {
+document.getElementById('chatInput').addEventListener('input', function () {
   this.style.height = 'auto';
   this.style.height = Math.min(this.scrollHeight, 100) + 'px';
 });
 
-onAuthStateChanged(auth, function (user) {
-  if (user && ALLOWED.includes(user.email)) {
+onAuthStateChanged(auth, async function (user) {
+  let ok = false;
+  if (user) {
+    myHash = await sha(user.email);
+    ok = (myHash === H_NICO || myHash === H_ELODIE);
+  }
+
+  if (ok) {
     currentUser = user;
     document.getElementById('loginScreen').classList.add('hidden');
     document.getElementById('mainApp').classList.remove('hidden');
     document.getElementById('loginError').style.display = 'none';
-    const prenom = user.email === EMAIL_NICO ? 'Nico' : 'Elodie';
-    document.getElementById('userGreeting').textContent = 'Connecte : ' + prenom;
+    document.getElementById('userGreeting').textContent = nameFor(myHash);
     document.getElementById('dateInput').value = new Date().toISOString().split('T')[0];
-    showTab(user.email === EMAIL_ELODIE ? 'history' : 'send');
+    showTab(myHash === H_ELODIE ? 'history' : 'send');
 
     const qp = query(collection(db, 'payments'), orderBy('createdAt', 'desc'));
     unsubP = onSnapshot(qp, function (snap) {
@@ -431,7 +516,6 @@ onAuthStateChanged(auth, function (user) {
 
     const qm = query(collection(db, 'messages'), orderBy('createdAt', 'asc'));
     unsubM = onSnapshot(qm, function (snap) {
-      const wasAtBottom = true;
       messages = snap.docs.map(function (d) { return Object.assign({ id: d.id }, d.data()); });
       renderChat();
       if (currentTab === 'chat') {
@@ -443,6 +527,7 @@ onAuthStateChanged(auth, function (user) {
     });
   } else {
     currentUser = null;
+    myHash = '';
     payments = [];
     messages = [];
     document.getElementById('loginScreen').classList.remove('hidden');
@@ -451,4 +536,4 @@ onAuthStateChanged(auth, function (user) {
 });
 </script>
 </body>
-</html>
+                                                                           </html>
