@@ -4,26 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chalet Saint-Pons</title>
-<meta name="theme-color" content="#14201A">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314201A'/%3E%3Cpath d='M38 78 L38 55 L33 46 L38 46 L34 38 L39 38 L36 31 L44 40 L56 40 L64 31 L61 38 L66 38 L62 46 L67 46 L62 55 L62 78 L56 78 L56 62 L44 62 L44 78 Z' fill='%23C9A227'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0B120E">
+<link rel="apple-touch-icon" href="C3rf_Gallery.jpg">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
-body{background:#0E1712;min-height:100vh;color:#E8E4DA}
-
+body{background:#0B120E;min-height:100vh;color:#E8E4DA}
 .hidden{display:none!important}
 
-.hero{position:relative;overflow:hidden;background:#14201A;padding:1.4rem 1.25rem 4.5rem}
-.hero-scene{position:absolute;inset:0;width:100%;height:100%}
+.hero{position:relative;overflow:hidden;min-height:190px;padding:1.3rem 1.25rem 3.8rem;
+  background-image:linear-gradient(to bottom,rgba(11,18,14,.86) 0%,rgba(11,18,14,.35) 38%,rgba(11,18,14,.55) 72%,rgba(11,18,14,.95) 100%),url('C3rf_Gallery.jpg');
+  background-size:cover;background-position:50% 32%;background-repeat:no-repeat}
 .hero-inner{position:relative;z-index:3}
-.hero-title{font-size:17px;font-weight:600;color:#F2EFE6;letter-spacing:.4px}
-.hero-sub{font-size:11.5px;color:rgba(242,239,230,.55);margin-top:3px;letter-spacing:.2px}
-.logout-btn{position:absolute;top:0;right:0;z-index:4;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#E8E4DA;border-radius:20px;padding:6px 13px;font-size:11.5px;cursor:pointer;backdrop-filter:blur(6px)}
+.hero-title{font-size:18px;font-weight:600;color:#FFFFFF;letter-spacing:.4px;text-shadow:0 2px 10px rgba(0,0,0,.9)}
+.hero-sub{font-size:11.5px;color:rgba(255,255,255,.72);margin-top:3px;letter-spacing:.3px;text-shadow:0 1px 6px rgba(0,0,0,.9)}
+.logout-btn{position:absolute;top:0;right:0;z-index:4;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.2);color:#FFF;border-radius:20px;padding:6px 13px;font-size:11.5px;cursor:pointer;backdrop-filter:blur(8px)}
 
-.balance-card{margin:-2.4rem 1rem 0;background:#1B2921;border:1px solid rgba(201,162,39,.22);border-radius:18px;padding:1.35rem;position:relative;z-index:6;box-shadow:0 8px 28px rgba(0,0,0,.45)}
+.balance-card{margin:-2.2rem 1rem 0;background:rgba(22,35,28,.94);border:1px solid rgba(201,162,39,.25);border-radius:18px;padding:1.35rem;position:relative;z-index:6;box-shadow:0 10px 30px rgba(0,0,0,.6);backdrop-filter:blur(12px)}
 .balance-label{font-size:11.5px;color:#9BA79D;margin-bottom:6px;text-transform:uppercase;letter-spacing:.7px}
 .balance-amount{font-size:38px;font-weight:600;color:#C9A227;line-height:1;letter-spacing:-.5px}
 .balance-total{font-size:12.5px;color:#7D897F;margin-top:6px}
-.progress-bar{height:7px;background:#0E1712;border-radius:4px;margin-top:1.1rem;overflow:hidden}
+.progress-bar{height:7px;background:#0B120E;border-radius:4px;margin-top:1.1rem;overflow:hidden}
 .progress-fill{height:100%;background:linear-gradient(90deg,#8A7A1E,#C9A227);border-radius:4px;transition:width .7s ease;width:0%}
 .progress-labels{display:flex;justify-content:space-between;font-size:11px;color:#7D897F;margin-top:7px}
 
@@ -63,7 +63,7 @@ body{background:#0E1712;min-height:100vh;color:#E8E4DA}
 .amount-input{width:100%;font-size:30px;font-weight:600;border:none;border-bottom:2px solid rgba(201,162,39,.4);padding:4px 0 10px;color:#C9A227;background:transparent;outline:none;margin-bottom:1.3rem}
 .amount-input::placeholder{color:#3A463E}
 .amount-input:focus{border-bottom-color:#C9A227}
-.date-input,.note-input{width:100%;font-size:14px;border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:11px;margin-bottom:1.3rem;color:#E8E4DA;background:#0E1712;outline:none;font-family:inherit}
+.date-input,.note-input{width:100%;font-size:14px;border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:11px;margin-bottom:1.3rem;color:#E8E4DA;background:#0B120E;outline:none;font-family:inherit}
 .note-input{resize:none;height:66px}
 .note-input::placeholder{color:#4A554D}
 .date-input:focus,.note-input:focus{border-color:rgba(201,162,39,.5)}
@@ -79,22 +79,24 @@ body{background:#0E1712;min-height:100vh;color:#E8E4DA}
 .msg-time{font-size:9.5px;opacity:.55;margin-top:5px;display:block}
 .msg-day{align-self:center;font-size:10.5px;color:#6B7670;background:#16231C;padding:5px 14px;border-radius:20px;margin:8px 0}
 .chat-input-bar{display:flex;gap:9px;padding:.85rem;background:#14201A;border-top:1px solid rgba(255,255,255,.06);align-items:flex-end}
-.chat-input{flex:1;font-size:14px;border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:11px 16px;outline:none;resize:none;max-height:100px;font-family:inherit;color:#E8E4DA;background:#0E1712}
+.chat-input{flex:1;font-size:14px;border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:11px 16px;outline:none;resize:none;max-height:100px;font-family:inherit;color:#E8E4DA;background:#0B120E}
 .chat-input::placeholder{color:#4A554D}
 .chat-input:focus{border-color:rgba(201,162,39,.45)}
 .chat-send{width:44px;height:44px;border-radius:50%;background:#C9A227;color:#14201A;border:none;font-size:17px;cursor:pointer;flex-shrink:0}
 .chat-send:active{opacity:.85}
 .chat-empty{text-align:center;color:#5E6962;font-size:13px;margin:auto;line-height:1.9}
 
-.login-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;background:#0E1712;position:relative;overflow:hidden}
-.login-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-.login-content{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center}
-.login-title{font-size:25px;font-weight:600;color:#F2EFE6;margin-bottom:7px;letter-spacing:.3px}
-.login-sub{font-size:12.5px;color:#7D897F;margin-bottom:2.2rem;text-align:center;line-height:1.7;letter-spacing:.3px}
-.login-card{width:100%;max-width:330px;background:rgba(27,41,33,.82);border:1px solid rgba(201,162,39,.2);border-radius:18px;padding:1.5rem;backdrop-filter:blur(10px)}
+.login-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:3rem 1.5rem 2.5rem;position:relative;
+  background-image:linear-gradient(to bottom,rgba(11,18,14,.9) 0%,rgba(11,18,14,.25) 26%,rgba(11,18,14,.15) 52%,rgba(11,18,14,.75) 82%,rgba(11,18,14,.97) 100%),url('C3rf_Gallery.jpg');
+  background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:scroll}
+.login-head{text-align:center;position:relative;z-index:2}
+.login-title{font-size:27px;font-weight:600;color:#FFFFFF;margin-bottom:8px;letter-spacing:.5px;text-shadow:0 2px 14px rgba(0,0,0,.95)}
+.login-sub{font-size:12.5px;color:rgba(255,255,255,.78);line-height:1.7;letter-spacing:.4px;text-shadow:0 2px 10px rgba(0,0,0,.95)}
+.login-foot{width:100%;display:flex;flex-direction:column;align-items:center;position:relative;z-index:2}
+.login-card{width:100%;max-width:330px;background:rgba(11,18,14,.72);border:1px solid rgba(201,162,39,.28);border-radius:18px;padding:1.4rem;backdrop-filter:blur(14px)}
 .btn-google{width:100%;padding:13px;background:#F2EFE6;color:#1B2921;border:none;border-radius:11px;font-size:14.5px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:11px}
 .btn-google:active{opacity:.9}
-.login-error{font-size:12px;color:#E0A088;background:rgba(212,101,63,.14);border:1px solid rgba(212,101,63,.3);border-radius:11px;padding:11px 13px;margin-bottom:1.1rem;display:none;line-height:1.5}
+.login-error{font-size:12px;color:#E0A088;background:rgba(212,101,63,.2);border:1px solid rgba(212,101,63,.4);border-radius:11px;padding:11px 13px;margin-bottom:1.1rem;display:none;line-height:1.5}
 .empty-state{text-align:center;padding:2.8rem 1rem;color:#5E6962;font-size:13.5px;line-height:1.9}
 .loading{text-align:center;padding:2rem;color:#5E6962;font-size:12.5px}
 </style>
@@ -102,58 +104,11 @@ body{background:#0E1712;min-height:100vh;color:#E8E4DA}
 <body>
 
 <div id="loginScreen" class="login-screen">
-  <svg class="login-bg" viewBox="0 0 400 800" preserveAspectRatio="xMidYMax slice">
-    <defs>
-      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#1A2620"/>
-        <stop offset="55%" stop-color="#14201A"/>
-        <stop offset="100%" stop-color="#0E1712"/>
-      </linearGradient>
-      <radialGradient id="glow" cx="50%" cy="62%" r="42%">
-        <stop offset="0%" stop-color="#C9A227" stop-opacity=".16"/>
-        <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
-      </radialGradient>
-    </defs>
-    <rect width="400" height="800" fill="url(#sky)"/>
-    <circle cx="308" cy="118" r="26" fill="#E8E4DA" opacity=".10"/>
-    <g fill="#E8E4DA" opacity=".22">
-      <circle cx="58" cy="82" r="1.1"/><circle cx="142" cy="52" r=".8"/><circle cx="238" cy="96" r="1"/>
-      <circle cx="356" cy="62" r=".9"/><circle cx="96" cy="146" r=".7"/><circle cx="190" cy="118" r=".9"/>
-      <circle cx="272" cy="42" r=".8"/><circle cx="26" cy="172" r=".8"/><circle cx="374" cy="150" r=".7"/>
-    </g>
-    <rect width="400" height="800" fill="url(#glow)"/>
-    <g fill="#1A2921" opacity=".55">
-      <path d="M22 560 L22 430 L8 452 L18 408 L4 424 L22 366 L40 424 L26 408 L36 452 Z"/>
-      <path d="M78 566 L78 418 L62 442 L74 394 L58 412 L78 348 L98 412 L82 394 L94 442 Z"/>
-      <path d="M140 558 L140 438 L126 460 L136 416 L122 432 L140 376 L158 432 L144 416 L154 460 Z"/>
-      <path d="M206 564 L206 424 L190 448 L202 400 L186 418 L206 354 L226 418 L210 400 L222 448 Z"/>
-      <path d="M272 556 L272 440 L258 462 L268 418 L254 434 L272 380 L290 434 L276 418 L286 462 Z"/>
-      <path d="M334 566 L334 420 L318 444 L330 396 L314 414 L334 350 L354 414 L338 396 L350 444 Z"/>
-      <path d="M386 558 L386 436 L372 458 L382 414 L368 430 L386 374 L400 424 L400 558 Z"/>
-    </g>
-    <g fill="#16231C">
-      <path d="M0 640 L0 470 L-6 490 L4 446 L-10 462 L6 398 L28 462 L12 446 L24 490 L10 470 L10 640 Z"/>
-      <path d="M52 648 L52 452 L32 482 L46 424 L26 446 L52 366 L78 446 L58 424 L72 482 L52 452 Z"/>
-      <path d="M128 654 L128 470 L110 498 L122 442 L104 464 L128 388 L152 464 L134 442 L146 498 L128 470 Z"/>
-      <path d="M212 650 L212 440 L192 472 L206 410 L186 434 L212 348 L238 434 L218 410 L232 472 L212 440 Z"/>
-      <path d="M296 656 L296 466 L278 494 L290 438 L272 460 L296 384 L320 460 L302 438 L314 494 L296 466 Z"/>
-      <path d="M368 648 L368 448 L348 478 L362 420 L342 442 L368 362 L394 442 L374 420 L388 478 L368 448 Z"/>
-    </g>
-    <ellipse cx="200" cy="726" rx="150" ry="16" fill="#0A110D" opacity=".55"/>
-    <g fill="#E8E4DA">
-      <path d="M186 726 L186 668 L180 658 L180 640 L176 632 L182 636 L186 646 L190 640 L210 640 L214 646 L218 636 L224 632 L220 640 L220 658 L214 668 L214 726 L206 726 L206 692 L194 692 L194 726 Z"/>
-      <path d="M182 620 L172 594 L176 596 L180 606 L178 590 L183 604 L184 592 L188 610 L190 624 Z"/>
-      <path d="M218 620 L228 594 L224 596 L220 606 L222 590 L217 604 L216 592 L212 610 L210 624 Z"/>
-    </g>
-    <g fill="#C9A227" opacity=".85">
-      <path d="M186 726 L186 668 L180 658 L180 640 L176 632 L182 636 L186 646 L190 640 L210 640 L214 646 L218 636 L224 632 L220 640 L220 658 L214 668 L214 726 L206 726 L206 692 L194 692 L194 726 Z" opacity=".25"/>
-    </g>
-    <rect y="720" width="400" height="80" fill="#0E1712"/>
-  </svg>
-
-  <div class="login-content">
+  <div class="login-head">
     <div class="login-title">Chalet Saint-Pons</div>
     <div class="login-sub">Vallee de l'Ubaye<br>Alpes de Haute-Provence</div>
+  </div>
+  <div class="login-foot">
     <div class="login-card">
       <div class="login-error" id="loginError">Acces refuse. Compte non autorise.</div>
       <button class="btn-google" onclick="signInWithGoogle()">
@@ -166,42 +121,6 @@ body{background:#0E1712;min-height:100vh;color:#E8E4DA}
 
 <div id="mainApp" class="hidden">
   <div class="hero">
-    <svg class="hero-scene" viewBox="0 0 400 170" preserveAspectRatio="xMidYMax slice">
-      <defs>
-        <radialGradient id="hglow" cx="72%" cy="78%" r="44%">
-          <stop offset="0%" stop-color="#C9A227" stop-opacity=".14"/>
-          <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <rect width="400" height="170" fill="#14201A"/>
-      <rect width="400" height="170" fill="url(#hglow)"/>
-      <g fill="#E8E4DA" opacity=".13">
-        <circle cx="46" cy="26" r=".9"/><circle cx="128" cy="16" r=".7"/><circle cx="214" cy="32" r=".8"/>
-        <circle cx="338" cy="20" r=".8"/><circle cx="286" cy="44" r=".6"/>
-      </g>
-      <g fill="#1A2921" opacity=".6">
-        <path d="M14 170 L14 106 L4 120 L11 92 L2 102 L14 66 L26 102 L17 92 L24 120 Z"/>
-        <path d="M58 170 L58 100 L47 116 L55 86 L45 98 L58 58 L71 98 L61 86 L69 116 Z"/>
-        <path d="M104 170 L104 108 L94 122 L101 94 L92 104 L104 68 L116 104 L107 94 L114 122 Z"/>
-        <path d="M152 170 L152 102 L141 118 L149 88 L139 100 L152 60 L165 100 L155 88 L163 118 Z"/>
-      </g>
-      <g fill="#17241D">
-        <path d="M34 170 L34 112 L21 130 L31 96 L19 110 L34 62 L49 110 L37 96 L47 130 Z"/>
-        <path d="M84 170 L84 104 L70 124 L81 86 L68 102 L84 50 L100 102 L87 86 L98 124 Z"/>
-        <path d="M136 170 L136 116 L123 134 L133 100 L121 114 L136 66 L151 114 L139 100 L149 134 Z"/>
-        <path d="M188 170 L188 106 L174 126 L185 88 L172 104 L188 54 L204 104 L191 88 L202 126 Z"/>
-      </g>
-      <g fill="#E8E4DA" opacity=".92">
-        <path d="M296 170 L296 128 L292 122 L292 110 L289 105 L293 108 L296 114 L299 110 L313 110 L316 114 L319 108 L323 105 L320 110 L320 122 L316 128 L316 170 L310 170 L310 146 L302 146 L302 170 Z"/>
-        <path d="M293 96 L286 78 L289 79 L292 86 L290 75 L294 85 L295 76 L298 89 L299 99 Z"/>
-        <path d="M319 96 L326 78 L323 79 L320 86 L322 75 L318 85 L317 76 L314 89 L313 99 Z"/>
-      </g>
-      <g fill="#17241D">
-        <path d="M352 170 L352 110 L339 128 L349 94 L337 108 L352 60 L367 108 L355 94 L365 128 Z"/>
-        <path d="M394 170 L394 118 L382 134 L391 102 L380 116 L394 72 L400 92 L400 170 Z"/>
-      </g>
-      <ellipse cx="308" cy="168" rx="34" ry="5" fill="#0C130F" opacity=".6"/>
-    </svg>
     <div class="hero-inner">
       <div class="hero-title">Chalet Saint-Pons</div>
       <div class="hero-sub" id="userGreeting"></div>
@@ -536,4 +455,4 @@ onAuthStateChanged(auth, async function (user) {
 });
 </script>
 </body>
-                                                                           </html>
+</html>
