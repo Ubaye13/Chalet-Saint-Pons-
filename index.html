@@ -11,11 +11,14 @@
 
 body{min-height:100vh;color:#EDEAE2;background:#0B120E}
 
-#bgLayer{position:fixed;inset:0;z-index:-2;
+#bgLayer{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-2;
   background-image:url('C3rf_Gallery.jpg');
-  background-size:cover;background-position:center;background-repeat:no-repeat}
-#bgVeil{position:fixed;inset:0;z-index:-1;
-  background:linear-gradient(to bottom,rgba(11,18,14,.72) 0%,rgba(11,18,14,.62) 40%,rgba(11,18,14,.78) 100%)}
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  transform:translateZ(0);will-change:transform;pointer-events:none}
+#bgVeil{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(11,18,14,.74) 0%,rgba(11,18,14,.64) 40%,rgba(11,18,14,.8) 100%);
+  transition:background .45s ease}
+#bgVeil.login{background:linear-gradient(to bottom,rgba(11,18,14,.9) 0%,rgba(11,18,14,.2) 26%,rgba(11,18,14,.12) 52%,rgba(11,18,14,.72) 82%,rgba(11,18,14,.96) 100%)}
 
 .hidden{display:none!important}
 
@@ -94,8 +97,6 @@ body{min-height:100vh;color:#EDEAE2;background:#0B120E}
 .chat-empty{text-align:center;color:rgba(237,234,226,.42);font-size:13px;margin:auto;line-height:1.9}
 
 .login-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:3rem 1.5rem 2.5rem;position:relative}
-.login-screen::before{content:'';position:fixed;inset:0;z-index:-1;
-  background:linear-gradient(to bottom,rgba(11,18,14,.9) 0%,rgba(11,18,14,.2) 26%,rgba(11,18,14,.12) 52%,rgba(11,18,14,.72) 82%,rgba(11,18,14,.96) 100%)}
 .login-head{text-align:center}
 .login-title{font-size:27px;font-weight:600;color:#FFF;margin-bottom:9px;letter-spacing:.5px;text-shadow:0 2px 16px rgba(0,0,0,.95)}
 .login-sub{font-size:12.5px;color:rgba(255,255,255,.78);line-height:1.7;letter-spacing:.4px;text-shadow:0 2px 12px rgba(0,0,0,.95)}
@@ -111,7 +112,7 @@ body{min-height:100vh;color:#EDEAE2;background:#0B120E}
 <body>
 
 <div id="bgLayer"></div>
-<div id="bgVeil"></div>
+<div id="bgVeil" class="login"></div>
 
 <div id="loginScreen" class="login-screen">
   <div class="login-head">
@@ -429,6 +430,7 @@ onAuthStateChanged(auth, async function (user) {
     currentUser = user;
     document.getElementById('loginScreen').classList.add('hidden');
     document.getElementById('mainApp').classList.remove('hidden');
+    document.getElementById('bgVeil').classList.remove('login');
     document.getElementById('loginError').style.display = 'none';
     document.getElementById('userGreeting').textContent = nameFor(myHash);
     document.getElementById('dateInput').value = new Date().toISOString().split('T')[0];
@@ -459,6 +461,7 @@ onAuthStateChanged(auth, async function (user) {
     messages = [];
     document.getElementById('loginScreen').classList.remove('hidden');
     document.getElementById('mainApp').classList.add('hidden');
+    document.getElementById('bgVeil').classList.add('login');
   }
 });
 </script>
