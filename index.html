@@ -8,143 +8,138 @@
 <link rel="apple-touch-icon" href="C3rf_Gallery.jpg">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
-
-body{min-height:100vh;color:#EDEAE2;background:#0B120E}
-
-#bgWrap{position:fixed;top:0;left:0;right:0;bottom:0;z-index:-2;overflow:hidden;pointer-events:none;background:#0B120E}
-#bgImg{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;
-  transform:translate(-50%,-50%);object-fit:cover;opacity:0;transition:opacity .6s ease}
-#bgImg.ready{opacity:1}
-#bgVeil{position:fixed;top:0;left:0;right:0;bottom:0;z-index:-1;pointer-events:none;
-  background:linear-gradient(to bottom,rgba(11,18,14,.74) 0%,rgba(11,18,14,.64) 40%,rgba(11,18,14,.8) 100%);
-  transition:background .5s ease}
-#bgVeil.login{background:linear-gradient(to bottom,rgba(11,18,14,.9) 0%,rgba(11,18,14,.2) 26%,rgba(11,18,14,.12) 52%,rgba(11,18,14,.72) 82%,rgba(11,18,14,.96) 100%)}
-
+body{min-height:100vh;color:#EDEAE2;background:#0E1712}
 .hidden{display:none!important}
 
-.hero{position:relative;padding:1.4rem 1.25rem 2.6rem}
+.hero{position:relative;height:270px;overflow:hidden;background:#0B120E}
+.hero-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;opacity:0;transition:opacity .5s ease}
+.hero-img.ready{opacity:1}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,18,14,.82) 0%,rgba(11,18,14,.15) 26%,rgba(11,18,14,0) 48%,rgba(11,18,14,.45) 76%,#0E1712 100%)}
+.hero-inner{position:absolute;top:1.4rem;left:1.25rem;right:1.25rem;z-index:3}
 .hero-title{font-size:19px;font-weight:600;color:#FFF;letter-spacing:.4px;text-shadow:0 2px 12px rgba(0,0,0,.95)}
-.hero-sub{font-size:12px;color:rgba(255,255,255,.7);margin-top:4px;letter-spacing:.3px;text-shadow:0 1px 8px rgba(0,0,0,.95)}
-.logout-btn{position:absolute;top:1.4rem;right:1.25rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#FFF;border-radius:20px;padding:7px 14px;font-size:11.5px;cursor:pointer;backdrop-filter:blur(14px)}
+.hero-sub{font-size:12px;color:rgba(255,255,255,.75);margin-top:4px;letter-spacing:.3px;text-shadow:0 1px 8px rgba(0,0,0,.95)}
+.logout-btn{position:absolute;top:0;right:0;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.25);color:#FFF;border-radius:20px;padding:7px 14px;font-size:11.5px;cursor:pointer;backdrop-filter:blur(10px)}
 
-.glass{background:rgba(14,22,17,.42);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.card{background:#16231C;border:1px solid rgba(255,255,255,.08)}
 
-.balance-card{margin:0 1rem;border-radius:20px;padding:1.4rem;box-shadow:0 8px 32px rgba(0,0,0,.4)}
-.balance-label{font-size:11px;color:rgba(237,234,226,.62);margin-bottom:7px;text-transform:uppercase;letter-spacing:.9px}
-.balance-amount{font-size:38px;font-weight:600;color:#FFF;line-height:1;letter-spacing:-.8px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
-.balance-total{font-size:12.5px;color:rgba(237,234,226,.5);margin-top:7px}
-.progress-bar{height:6px;background:rgba(255,255,255,.12);border-radius:3px;margin-top:1.2rem;overflow:hidden}
+.balance-card{margin:-2.2rem 1rem 0;border-radius:20px;padding:1.4rem;position:relative;z-index:5;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.balance-label{font-size:11px;color:rgba(237,234,226,.55);margin-bottom:7px;text-transform:uppercase;letter-spacing:.9px}
+.balance-amount{font-size:38px;font-weight:600;color:#FFF;line-height:1;letter-spacing:-.8px}
+.balance-total{font-size:12.5px;color:rgba(237,234,226,.45);margin-top:7px}
+.progress-bar{height:6px;background:rgba(255,255,255,.1);border-radius:3px;margin-top:1.2rem;overflow:hidden}
 .progress-fill{height:100%;background:#A8C3A0;border-radius:3px;transition:width .7s ease;width:0%}
-.progress-labels{display:flex;justify-content:space-between;font-size:11px;color:rgba(237,234,226,.5);margin-top:8px}
+.progress-labels{display:flex;justify-content:space-between;font-size:11px;color:rgba(237,234,226,.45);margin-top:8px}
 
 .tab-bar{display:flex;gap:6px;padding:1rem 1rem .3rem}
-.tab{flex:1;padding:11px 4px;font-size:12px;font-weight:600;color:rgba(237,234,226,.55);border:1px solid rgba(255,255,255,.1);background:rgba(14,22,17,.35);border-radius:12px;cursor:pointer;position:relative;backdrop-filter:blur(14px);transition:all .2s}
-.tab.active{color:#FFF;background:rgba(168,195,160,.18);border-color:rgba(168,195,160,.45)}
+.tab{flex:1;padding:11px 4px;font-size:12px;font-weight:600;color:rgba(237,234,226,.5);border:1px solid rgba(255,255,255,.08);background:#16231C;border-radius:12px;cursor:pointer;position:relative;transition:all .2s}
+.tab.active{color:#FFF;background:rgba(168,195,160,.16);border-color:rgba(168,195,160,.42)}
 .tab-dot{position:absolute;top:6px;right:9px;width:6px;height:6px;background:#E0A088;border-radius:50%;display:none}
 
 .section{padding:.8rem 1rem 1.5rem}
-.section-title{font-size:10.5px;font-weight:600;color:rgba(237,234,226,.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:.85rem}
+.section-title{font-size:10.5px;font-weight:600;color:rgba(237,234,226,.45);text-transform:uppercase;letter-spacing:1px;margin-bottom:.85rem}
 
 .payment-card{border-radius:16px;padding:1.05rem 1.15rem;margin-bottom:.65rem}
 .payment-card.approved{border-left:3px solid #A8C3A0}
 .payment-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
 .payment-amount{font-size:19px;font-weight:600;color:#FFF}
-.payment-meta{font-size:11.5px;color:rgba(237,234,226,.55);margin-top:5px;line-height:1.5}
-.lock-line{font-size:10.5px;color:rgba(237,234,226,.4);margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1)}
+.payment-meta{font-size:11.5px;color:rgba(237,234,226,.5);margin-top:5px;line-height:1.5}
+.lock-line{font-size:10.5px;color:rgba(237,234,226,.35);margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07)}
 .badge{font-size:10.5px;padding:4px 11px;border-radius:20px;font-weight:600;white-space:nowrap;letter-spacing:.3px}
-.badge-pending{background:rgba(255,255,255,.14);color:rgba(255,255,255,.85)}
-.badge-approved{background:rgba(168,195,160,.24);color:#C4DCBC}
-.badge-rejected{background:rgba(224,160,136,.2);color:#E8B8A4}
+.badge-pending{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8)}
+.badge-approved{background:rgba(168,195,160,.2);color:#C4DCBC}
+.badge-rejected{background:rgba(224,160,136,.16);color:#E8B8A4}
 
 .action-btns{display:flex;gap:9px;margin-top:1rem}
 .btn{flex:1;padding:11px;border-radius:11px;font-size:13px;font-weight:600;cursor:pointer;border:none}
 .btn-approve{background:#A8C3A0;color:#16231C}
-.btn-reject{background:rgba(255,255,255,.1);color:#E8B8A4;border:1px solid rgba(224,160,136,.35)}
-.delete-link{background:none;border:none;color:rgba(237,234,226,.38);font-size:11px;cursor:pointer;padding:10px 0 0;display:inline-block}
-.delete-confirm{background:rgba(224,160,136,.12);border:1px solid rgba(224,160,136,.3);border-radius:12px;padding:11px 13px;margin-top:.85rem;font-size:12px;color:#E8B8A4;line-height:1.5}
+.btn-reject{background:rgba(255,255,255,.07);color:#E8B8A4;border:1px solid rgba(224,160,136,.3)}
+.delete-link{background:none;border:none;color:rgba(237,234,226,.32);font-size:11px;cursor:pointer;padding:10px 0 0;display:inline-block}
+.delete-confirm{background:rgba(224,160,136,.1);border:1px solid rgba(224,160,136,.26);border-radius:12px;padding:11px 13px;margin-top:.85rem;font-size:12px;color:#E8B8A4;line-height:1.5}
 .confirm-btns{display:flex;gap:8px;margin-top:11px}
 .btn-sm{padding:7px 14px;border-radius:10px;font-size:12px;cursor:pointer;border:none;font-weight:600}
 .btn-sm-danger{background:#D4917A;color:#1A1210}
-.btn-sm-cancel{background:rgba(255,255,255,.1);color:rgba(237,234,226,.75);border:1px solid rgba(255,255,255,.16)}
-.delete-wait{font-size:11px;color:rgba(237,234,226,.72);background:rgba(255,255,255,.08);border-radius:10px;padding:9px 12px;margin-top:10px;line-height:1.5}
+.btn-sm-cancel{background:rgba(255,255,255,.08);color:rgba(237,234,226,.7);border:1px solid rgba(255,255,255,.12)}
+.delete-wait{font-size:11px;color:rgba(237,234,226,.68);background:rgba(255,255,255,.06);border-radius:10px;padding:9px 12px;margin-top:10px;line-height:1.5}
 
 .input-card{border-radius:18px;padding:1.3rem}
-.field-label{font-size:10.5px;color:rgba(237,234,226,.5);margin-bottom:8px;display:block;font-weight:600;text-transform:uppercase;letter-spacing:.8px}
-.amount-input{width:100%;font-size:32px;font-weight:600;border:none;border-bottom:2px solid rgba(168,195,160,.45);padding:4px 0 11px;color:#FFF;background:transparent;outline:none;margin-bottom:1.4rem}
-.amount-input::placeholder{color:rgba(255,255,255,.2)}
+.field-label{font-size:10.5px;color:rgba(237,234,226,.45);margin-bottom:8px;display:block;font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+.amount-input{width:100%;font-size:32px;font-weight:600;border:none;border-bottom:2px solid rgba(168,195,160,.4);padding:4px 0 11px;color:#FFF;background:transparent;outline:none;margin-bottom:1.4rem}
+.amount-input::placeholder{color:rgba(255,255,255,.18)}
 .amount-input:focus{border-bottom-color:#A8C3A0}
-.date-input,.note-input{width:100%;font-size:14px;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px;margin-bottom:1.4rem;color:#EDEAE2;background:rgba(0,0,0,.28);outline:none;font-family:inherit}
+.date-input,.note-input{width:100%;font-size:14px;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px;margin-bottom:1.4rem;color:#EDEAE2;background:#0E1712;outline:none;font-family:inherit}
 .note-input{resize:none;height:68px}
-.note-input::placeholder{color:rgba(255,255,255,.28)}
-.date-input:focus,.note-input:focus{border-color:rgba(168,195,160,.5)}
+.note-input::placeholder{color:rgba(255,255,255,.25)}
+.date-input:focus,.note-input:focus{border-color:rgba(168,195,160,.45)}
 .btn-send{width:100%;padding:14px;background:#A8C3A0;color:#16231C;border:none;border-radius:13px;font-size:15px;font-weight:600;cursor:pointer}
 .btn-send:active{opacity:.85}
 .send-error{font-size:12px;color:#E8B8A4;display:none;margin-bottom:12px}
 
-.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 140px)}
+.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 130px)}
 .chat-messages{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:9px}
 .msg{max-width:78%;padding:11px 15px;border-radius:17px;font-size:14px;line-height:1.5;word-wrap:break-word}
-.msg-mine{align-self:flex-end;background:rgba(168,195,160,.9);color:#16231C;border-bottom-right-radius:5px}
-.msg-theirs{align-self:flex-start;background:rgba(14,22,17,.55);color:#EDEAE2;border:1px solid rgba(255,255,255,.14);border-bottom-left-radius:5px;backdrop-filter:blur(14px)}
+.msg-mine{align-self:flex-end;background:#A8C3A0;color:#16231C;border-bottom-right-radius:5px}
+.msg-theirs{align-self:flex-start;background:#16231C;color:#EDEAE2;border:1px solid rgba(255,255,255,.09);border-bottom-left-radius:5px}
 .msg-time{font-size:9.5px;opacity:.6;margin-top:5px;display:block}
-.msg-day{align-self:center;font-size:10.5px;color:rgba(237,234,226,.55);background:rgba(14,22,17,.5);padding:5px 15px;border-radius:20px;margin:9px 0;backdrop-filter:blur(12px)}
-.chat-input-bar{display:flex;gap:9px;padding:.9rem;background:rgba(11,18,14,.6);border-top:1px solid rgba(255,255,255,.1);align-items:flex-end;backdrop-filter:blur(18px)}
-.chat-input{flex:1;font-size:14px;border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:12px 17px;outline:none;resize:none;max-height:100px;font-family:inherit;color:#EDEAE2;background:rgba(0,0,0,.3)}
-.chat-input::placeholder{color:rgba(255,255,255,.28)}
-.chat-input:focus{border-color:rgba(168,195,160,.5)}
+.msg-day{align-self:center;font-size:10.5px;color:rgba(237,234,226,.5);background:#16231C;padding:5px 15px;border-radius:20px;margin:9px 0}
+.chat-input-bar{display:flex;gap:9px;padding:.9rem;background:#0E1712;border-top:1px solid rgba(255,255,255,.07);align-items:flex-end}
+.chat-input{flex:1;font-size:14px;border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:12px 17px;outline:none;resize:none;max-height:100px;font-family:inherit;color:#EDEAE2;background:#16231C}
+.chat-input::placeholder{color:rgba(255,255,255,.25)}
+.chat-input:focus{border-color:rgba(168,195,160,.45)}
 .chat-send{width:44px;height:44px;border-radius:50%;background:#A8C3A0;color:#16231C;border:none;font-size:17px;cursor:pointer;flex-shrink:0}
 .chat-send:active{opacity:.85}
-.chat-empty{text-align:center;color:rgba(237,234,226,.42);font-size:13px;margin:auto;line-height:1.9}
+.chat-empty{text-align:center;color:rgba(237,234,226,.38);font-size:13px;margin:auto;line-height:1.9}
 
-.login-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:3rem 1.5rem 2.5rem;position:relative}
+.login-screen{position:relative;min-height:100vh;overflow:hidden;background:#0B120E}
+.login-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity .6s ease}
+.login-img.ready{opacity:1}
+.login-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,18,14,.88) 0%,rgba(11,18,14,.18) 22%,rgba(11,18,14,0) 45%,rgba(11,18,14,.35) 70%,rgba(11,18,14,.92) 92%,#0B120E 100%)}
+.login-layer{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:3.2rem 1.5rem 2.6rem}
 .login-head{text-align:center}
-.login-title{font-size:27px;font-weight:600;color:#FFF;margin-bottom:9px;letter-spacing:.5px;text-shadow:0 2px 16px rgba(0,0,0,.95)}
-.login-sub{font-size:12.5px;color:rgba(255,255,255,.78);line-height:1.7;letter-spacing:.4px;text-shadow:0 2px 12px rgba(0,0,0,.95)}
-.login-foot{width:100%;display:flex;flex-direction:column;align-items:center}
-.login-card{width:100%;max-width:330px;border-radius:20px;padding:1.4rem}
+.login-title{font-size:27px;font-weight:600;color:#FFF;margin-bottom:9px;letter-spacing:.5px;text-shadow:0 2px 18px rgba(0,0,0,.98)}
+.login-sub{font-size:12.5px;color:rgba(255,255,255,.8);line-height:1.7;letter-spacing:.4px;text-shadow:0 2px 14px rgba(0,0,0,.98)}
+.login-foot{width:100%;display:flex;justify-content:center}
+.login-card{width:100%;max-width:330px;background:rgba(11,18,14,.6);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:1.4rem;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .btn-google{width:100%;padding:13px;background:#F5F2EA;color:#1B2921;border:none;border-radius:12px;font-size:14.5px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:11px}
 .btn-google:active{opacity:.9}
-.login-error{font-size:12px;color:#E8B8A4;background:rgba(224,160,136,.18);border:1px solid rgba(224,160,136,.38);border-radius:12px;padding:11px 13px;margin-bottom:1.1rem;display:none;line-height:1.5}
-.empty-state{text-align:center;padding:2.8rem 1rem;color:rgba(237,234,226,.42);font-size:13.5px;line-height:1.9}
-.loading{text-align:center;padding:2rem;color:rgba(237,234,226,.42);font-size:12.5px}
+.login-error{font-size:12px;color:#E8B8A4;background:rgba(224,160,136,.18);border:1px solid rgba(224,160,136,.36);border-radius:12px;padding:11px 13px;margin-bottom:1.1rem;display:none;line-height:1.5}
+.empty-state{text-align:center;padding:2.8rem 1rem;color:rgba(237,234,226,.38);font-size:13.5px;line-height:1.9}
+.loading{text-align:center;padding:2rem;color:rgba(237,234,226,.38);font-size:12.5px}
 </style>
 </head>
 <body>
 
-<div id="bgWrap"><img id="bgImg" src="C3rf_Gallery.jpg" alt=""></div>
-<div id="bgVeil" class="login"></div>
-<script>
-(function(){
-  var i=document.getElementById('bgImg');
-  if(i.complete){i.classList.add('ready');}
-  else{i.addEventListener('load',function(){i.classList.add('ready');});}
-})();
-</script>
-
 <div id="loginScreen" class="login-screen">
-  <div class="login-head">
-    <div class="login-title">Chalet Saint-Pons</div>
-    <div class="login-sub">Vallee de l'Ubaye<br>Alpes de Haute-Provence</div>
-  </div>
-  <div class="login-foot">
-    <div class="login-card glass">
-      <div class="login-error" id="loginError">Acces refuse. Compte non autorise.</div>
-      <button class="btn-google" onclick="signInWithGoogle()">
-        <svg width="19" height="19" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-        Se connecter avec Google
-      </button>
+  <img class="login-img" id="loginImg" src="C3rf_Gallery.jpg" alt="">
+  <div class="login-shade"></div>
+  <div class="login-layer">
+    <div class="login-head">
+      <div class="login-title">Chalet Saint-Pons</div>
+      <div class="login-sub">Vallee de l'Ubaye<br>Alpes de Haute-Provence</div>
+    </div>
+    <div class="login-foot">
+      <div class="login-card">
+        <div class="login-error" id="loginError">Acces refuse. Compte non autorise.</div>
+        <button class="btn-google" onclick="signInWithGoogle()">
+          <svg width="19" height="19" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Se connecter avec Google
+        </button>
+      </div>
     </div>
   </div>
 </div>
 
 <div id="mainApp" class="hidden">
   <div class="hero">
-    <div class="hero-title">Chalet Saint-Pons</div>
-    <div class="hero-sub" id="userGreeting"></div>
-    <button class="logout-btn" onclick="doSignOut()">Deconnexion</button>
+    <img class="hero-img" id="heroImg" src="C3rf_Gallery.jpg" alt="">
+    <div class="hero-shade"></div>
+    <div class="hero-inner">
+      <div class="hero-title">Chalet Saint-Pons</div>
+      <div class="hero-sub" id="userGreeting"></div>
+      <button class="logout-btn" onclick="doSignOut()">Deconnexion</button>
+    </div>
   </div>
 
-  <div class="balance-card glass" id="balanceCard">
+  <div class="balance-card card" id="balanceCard">
     <div class="balance-label">Reste a rembourser a Elodie</div>
     <div class="balance-amount" id="balanceDisplay">30 000 &euro;</div>
     <div class="balance-total">sur 30 000 &euro; au total</div>
@@ -171,7 +166,7 @@ body{min-height:100vh;color:#EDEAE2;background:#0B120E}
   <div id="tabContentSend" class="hidden">
     <div class="section">
       <div class="section-title">Proposer un versement</div>
-      <div class="input-card glass">
+      <div class="input-card card">
         <label class="field-label">Montant</label>
         <input class="amount-input" id="amountInput" type="number" inputmode="decimal" placeholder="1000" min="1">
         <label class="field-label">Date du versement</label>
@@ -194,6 +189,17 @@ body{min-height:100vh;color:#EDEAE2;background:#0B120E}
     </div>
   </div>
 </div>
+
+<script>
+(function () {
+  ['loginImg', 'heroImg'].forEach(function (id) {
+    var i = document.getElementById(id);
+    if (!i) return;
+    if (i.complete && i.naturalWidth) { i.classList.add('ready'); }
+    else { i.addEventListener('load', function () { i.classList.add('ready'); }); }
+  });
+})();
+</script>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -391,7 +397,7 @@ function render() {
       del = '<div class="delete-confirm">' + nameFor(p.deleteRequest) + ' demande la suppression de ce versement.<div class="confirm-btns"><button class="btn-sm btn-sm-danger" onclick="confirmDelete(\'' + p.id + '\')">Confirmer</button><button class="btn-sm btn-sm-cancel" onclick="refuseDelete(\'' + p.id + '\')">Refuser</button></div></div>';
     }
 
-    return '<div class="payment-card glass' + (approved ? ' approved' : '') + '">' +
+    return '<div class="payment-card card' + (approved ? ' approved' : '') + '">' +
       '<div class="payment-row"><div>' +
       '<div class="payment-amount">' + p.amount.toLocaleString('fr-FR') + ' \u20AC</div>' +
       '<div class="payment-meta">' + fmtDate(p.date) + ' &middot; ' + nameFor(p.proposedBy) + (p.note ? '<br>' + esc(p.note) : '') + '</div>' +
@@ -437,7 +443,6 @@ onAuthStateChanged(auth, async function (user) {
     currentUser = user;
     document.getElementById('loginScreen').classList.add('hidden');
     document.getElementById('mainApp').classList.remove('hidden');
-    document.getElementById('bgVeil').classList.remove('login');
     document.getElementById('loginError').style.display = 'none';
     document.getElementById('userGreeting').textContent = nameFor(myHash);
     document.getElementById('dateInput').value = new Date().toISOString().split('T')[0];
@@ -468,7 +473,6 @@ onAuthStateChanged(auth, async function (user) {
     messages = [];
     document.getElementById('loginScreen').classList.remove('hidden');
     document.getElementById('mainApp').classList.add('hidden');
-    document.getElementById('bgVeil').classList.add('login');
   }
 });
 </script>
