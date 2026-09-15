@@ -11,13 +11,13 @@
 
 body{min-height:100vh;color:#EDEAE2;background:#0B120E}
 
-#bgLayer{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-2;
-  background-image:url('C3rf_Gallery.jpg');
-  background-size:cover;background-position:center;background-repeat:no-repeat;
-  transform:translateZ(0);will-change:transform;pointer-events:none}
-#bgVeil{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;
+#bgWrap{position:fixed;top:0;left:0;right:0;bottom:0;z-index:-2;overflow:hidden;pointer-events:none;background:#0B120E}
+#bgImg{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;
+  transform:translate(-50%,-50%);object-fit:cover;opacity:0;transition:opacity .6s ease}
+#bgImg.ready{opacity:1}
+#bgVeil{position:fixed;top:0;left:0;right:0;bottom:0;z-index:-1;pointer-events:none;
   background:linear-gradient(to bottom,rgba(11,18,14,.74) 0%,rgba(11,18,14,.64) 40%,rgba(11,18,14,.8) 100%);
-  transition:background .45s ease}
+  transition:background .5s ease}
 #bgVeil.login{background:linear-gradient(to bottom,rgba(11,18,14,.9) 0%,rgba(11,18,14,.2) 26%,rgba(11,18,14,.12) 52%,rgba(11,18,14,.72) 82%,rgba(11,18,14,.96) 100%)}
 
 .hidden{display:none!important}
@@ -111,8 +111,15 @@ body{min-height:100vh;color:#EDEAE2;background:#0B120E}
 </head>
 <body>
 
-<div id="bgLayer"></div>
+<div id="bgWrap"><img id="bgImg" src="C3rf_Gallery.jpg" alt=""></div>
 <div id="bgVeil" class="login"></div>
+<script>
+(function(){
+  var i=document.getElementById('bgImg');
+  if(i.complete){i.classList.add('ready');}
+  else{i.addEventListener('load',function(){i.classList.add('ready');});}
+})();
+</script>
 
 <div id="loginScreen" class="login-screen">
   <div class="login-head">
